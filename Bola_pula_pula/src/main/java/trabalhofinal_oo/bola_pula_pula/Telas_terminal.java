@@ -15,7 +15,8 @@ public class Telas_terminal {
             teclado.nextLine();
             switch(escolha){
                 case 1:
-                    //Tabuleiro Jogo= new Tabuleiro();
+                    Jogo jogo= new Jogo();
+                    jogo.start();
                     break;
                 case 2:
                     Ranking();
@@ -38,6 +39,9 @@ public class Telas_terminal {
     }
 
     public static void clean(){
+        System.out.println("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.println("\033[H\033[2J");
     }
 
