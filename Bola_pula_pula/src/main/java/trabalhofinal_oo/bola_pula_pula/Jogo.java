@@ -44,7 +44,7 @@ public class Jogo {
                     lifes();
                }
                else{
-                    for(int j=0;j<lateral+2;j++){
+                    for(int j=0;j<lateral+1;j++){
                          if(i==1){
                               System.out.print("-");
                               System.out.print("-");
