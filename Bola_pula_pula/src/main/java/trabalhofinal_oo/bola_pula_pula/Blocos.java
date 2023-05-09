@@ -1,36 +1,37 @@
 package trabalhofinal_oo.bola_pula_pula;
 
-public class Blocos extends Tabuleiro{
+public class Blocos extends Tabuleiro {
 
     private String color;
-    public Blocos(){
-        int a=(int)(Math.random()*7);
-        switch(a){
+
+    public Blocos() {
+        int a = (int) (Math.random() * 7);
+        switch (a) {
             case 1:
-                color="🟥";
+                color = ConsoleColors.RED_BACKGROUND_BRIGHT;
                 break;
             case 2:
-                color="🟧";
+                color = ConsoleColors.GREEN_BACKGROUND_BRIGHT;
                 break;
             case 3:
-                color="🟨";
+                color = ConsoleColors.YELLOW_BACKGROUND_BRIGHT;
                 break;
             case 4:
-                color="🟩";
+                color = ConsoleColors.BLACK_BACKGROUND_BRIGHT;
                 break;
             case 5:
-                color="🟦";
+                color = ConsoleColors.PURPLE_BACKGROUND_BRIGHT;
                 break;
             case 6:
-                color="🟪";
+                color = ConsoleColors.CYAN_BACKGROUND_BRIGHT;
                 break;
             case 0:
-                color="🟫";
+                color = ConsoleColors.WHITE_BACKGROUND_BRIGHT;
                 break;
         }
-    } 
+    }
 
-    public void print(){
-        System.out.print(color);
+    public void print() {
+        System.out.print(color + "  " + ConsoleColors.RESET);
     }
 }
