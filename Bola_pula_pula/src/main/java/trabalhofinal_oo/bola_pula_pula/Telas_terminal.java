@@ -46,7 +46,17 @@ public class Telas_terminal {
     }
 
     private static void Ranking(){
-        //TODO:Implementar a função para mostrar o Ranking que será armazenado externamente
+        clean();
+        System.out.println("\t\tRanking");
+        System.out.println("");
+        System.out.println("        Player\t\tPontos");
+        System.out.println("\n\n");
+        System.out.println("     Em breve uma implementacao em interface GUI");
+        System.out.println("\n\n");
+        System.out.println("\nPara voltar, presione o Enter");
+        try{System.in.read();}
+        catch(Exception e){}
+
     }
 
     private static void Regras(){
