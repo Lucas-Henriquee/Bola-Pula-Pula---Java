@@ -1,5 +1,12 @@
+//Integrantes:
+//Lucas Henrique Nogueira  - 202265515B
+//Breno Fernandes
+//Breno Montanha
+//Pedro Henrique
+
 package trabalhofinal_oo.bola_pula_pula;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Telas_terminal {
@@ -55,7 +62,7 @@ public class Telas_terminal {
         System.out.println("\n\n");
         System.out.println("\nPara voltar, presione o Enter");
         try{System.in.read();}
-        catch(Exception e){}
+        catch(IOException e){}
 
     }
 
@@ -68,7 +75,7 @@ public class Telas_terminal {
         System.out.println("A cada bloco quebrado, sua pontuação total será acrescida e ao final das 3 vidas, será inserida no Ranking");
         System.out.println("\nPara voltar, presione o Enter");
         try{System.in.read();}
-        catch(Exception e){}
+        catch(IOException e){}
     }
 
     private static void Creditos(){
