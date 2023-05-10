@@ -72,7 +72,15 @@ public class Telas_terminal {
     }
 
     private static void Creditos(){
-        //TODO: Implementar os Créditos
+        clean();
+        System.out.println("\t\t\t Créditos: ");
+        System.out.println("\n\t Obrigado por jogar!!");
+        System.out.println("\t este é um trabalho de Orientação a Objetos ");
+        System.out.println("\t realizado por Breno Fernandes, Breno Montanha, Lucas Henrique e Pedro Henrique");
+        System.out.println("\t Esperamos que tenha gostado do jogo... ");
+        System.out.println("\nPara voltar, presione o Enter");
+        try{System.in.read();}
+        catch(IOException e){}
     }
 
 }
