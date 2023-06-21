@@ -19,6 +19,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+
+import Jogo.Jogo;
+
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
@@ -46,6 +49,7 @@ public class Tela implements ActionListener {
         tela.setSize(WIDTH, HEIGHT);
         tela.setVisible(true);
         tela.setLocationRelativeTo(null);
+        tela.setResizable(false);
         telaInicial();
 
     }
@@ -76,7 +80,7 @@ public class Tela implements ActionListener {
         jbIniciar.addActionListener(this);
         
         JLabel jlImagem = new JLabel();
-        jlImagem.setIcon(new ImageIcon("src//main//java//bola_pula_pula//ball_brick.png"));
+        jlImagem.setIcon(new ImageIcon("src/main/java/Images/ball_brick.png"));
         jlImagem.setBounds(350,190,550,600);
         
         a.gridy = 0;
@@ -162,6 +166,12 @@ public class Tela implements ActionListener {
         JPanel jpJogar = new JPanel();
         jpJogar.setLayout(null);
         jpJogar.setBackground(Color.cyan);
+        Jogo jogo = new Jogo();
+        tela.getContentPane().add(jogo);
+        tela.pack();
+        Thread thread= new Thread(jogo);
+        thread.start();
+        
     }
 
     private void telaRanking() {
