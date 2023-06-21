@@ -219,7 +219,7 @@ public class Tela implements ActionListener {
         jtaRegras.setText("             O jogador controla uma barra que se move lateralmente. "
                 + "\n\nO objetivo é quebrar os blcos que são gerados de tempos em tempos.\n\n  "
                 + "            O jogador possui 3 vidas ao longo de cada partida.\n\n    "
-                + "  As vidas são perdidas quando o tabuleiro não possui mais vidas.\n\n"
+                + "  As vidas são perdidas quando o tabuleiro não possui mais bolas.\n\n"
                 + "A cada bloco quebrado a pontuação será acrescida na pontuação total.");
 
         jbVoltar = new JButton("Voltar");
@@ -256,7 +256,7 @@ public class Tela implements ActionListener {
         jtaCreditos.setFont(new Font("segoe UI", 1, 35));
         jtaCreditos.setBounds(new Rectangle(5, 245, 1200, 480));
         jtaCreditos.setText("\n              Este é um trabalho de Orientação a Objetos\n\n      "
-                + "    relizado por Breno Fernendes, Breno Montanha,\n\n                  "
+                + "    relizado por Breno Fernandes, Breno Montanha,\n\n                  "
                 + "  Lucas Henrique e Pedro Henrique.\n\n\n\n               "
                 + "Esperamos que tenham gostado do jogo :)");
 
