@@ -10,7 +10,7 @@ public class Bloco {
     public Bloco(int x, int y){
         this.x=x;
         this.y=y;
-        color= new Random().nextInt(10);
+        color= new Random().nextInt(9);
     }
     
     public void tick(){
@@ -21,20 +21,19 @@ public class Bloco {
     }
     
     public void breaking(){
-        
+        Jogo.pontuacao+=100;
     }
     
     public void render(Graphics g){
         switch(color){
             case 0 : g.setColor(Color.blue); break;
-            case 1 : g.setColor(Color.cyan); break;
             case 3 : g.setColor(Color.gray); break;
             case 4 : g.setColor(Color.green); break;
             case 5 : g.setColor(Color.lightGray); break;
             case 6 : g.setColor(Color.magenta); break;
             case 7 : g.setColor(Color.orange); break;
             case 8 : g.setColor(Color.pink); break;
-            case 9 : g.setColor(Color.red); break;
+            case 1 : g.setColor(Color.red); break;
             case 2 : g.setColor(Color.yellow); break;
         }
         g.fillRect(x, y, COMPRIMENTO, ALTURA);

@@ -6,7 +6,7 @@ import java.awt.Graphics;
 public class Jogador {
     public boolean right, left;
     public int x,y;
-    public static int comprimento=500, altura=15;
+    public static int comprimento=200, altura=15;
     public static int velocidade=20, color=1;
     
     public Jogador(int x, int y){

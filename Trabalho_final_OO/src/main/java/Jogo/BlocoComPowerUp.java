@@ -14,6 +14,7 @@ public class BlocoComPowerUp extends Bloco {
     
     @Override
     public void breaking(){
+        super.breaking();
         switch(power){
             case 0:Jogo.powerups.add(new TripleBall(this.x+10,this.y+10)); break;
             case 1:Jogo.powerups.add(new Plus2Balls(this.x+10,this.y+10)); break;

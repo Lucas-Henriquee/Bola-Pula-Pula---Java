@@ -1,6 +1,8 @@
 package Jogo;
 
 import PowerUps.PowerUp;
+import view.Tela;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,13 +14,15 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
 
 public class Jogo extends Canvas implements Runnable,KeyListener {
     
-    public static final int COMPRIMENTO = 1200, ALTURA = 1000;
+    public static final int COMPRIMENTO = 1000, ALTURA = 800;
     
     private int i=1000;
     public BufferedImage layer = new BufferedImage(COMPRIMENTO, ALTURA, BufferedImage.TYPE_INT_RGB);
@@ -27,7 +31,7 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
     public static List<Bloco> blocos = new ArrayList<>();
     public static List<Bola> bolas = new ArrayList<>();
     public static List<PowerUp> powerups = new ArrayList<>();
-    
+    public static long pontuacao=0;
     public Jogo(){
         this.setPreferredSize(new Dimension(COMPRIMENTO,ALTURA));
         this.addKeyListener(this);
@@ -88,21 +92,27 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
         g.drawImage(layer, 0, 0, COMPRIMENTO,ALTURA,null);
         
         bs.show();
+        Tela.jlPontuacao.setText("Pontuação: "+Jogo.pontuacao);
     }
 
     @Override
     public void run() {
         while(lifes>0){
             tick();
+            render();
             if(bolas.isEmpty()){
                 lifes--;
                 bolas.add(new Bola(jogador.x+Jogador.comprimento/2, ALTURA-Jogador.altura));
             }
-            render();
             try{
                 Thread.sleep(1000/60);
             }catch(InterruptedException e){
                 e.printStackTrace();
+            }
+            switch(lifes){
+                case 3: Tela.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/ThreeHearts.png")); break;
+                case 2: Tela.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/TwoHearts.png")); break;
+                case 1: Tela.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/OneHeart.png")); break;
             }
         }
         JOptionPane.showMessageDialog(null, "Você perdeu");

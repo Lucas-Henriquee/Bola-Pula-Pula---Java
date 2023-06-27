@@ -39,6 +39,10 @@ public class Tela implements ActionListener {
     private JButton jbCreditos;
     private JButton jbVoltar;
     private JButton jbSair;
+    public static JLabel jlPontuacao = new JLabel("Pontuação: "+Jogo.pontuacao);
+    public static JLabel jlVidas = new JLabel("Vidas: ");
+    public static JLabel jlVidasImage = new JLabel();
+
 
     private final int HEIGHT = 1000;
     private final int WIDTH = 1200;
@@ -162,16 +166,22 @@ public class Tela implements ActionListener {
     }
 
     private void telaJogar() {
-
+        jlPontuacao.setFont(new Font("Segoe UI", 1, 20));
+        jlVidas.setFont(new Font("Segoe UI", 1, 20));
+        jlVidasImage.setBounds(50, 50, 300, 80);
         JPanel jpJogar = new JPanel();
         jpJogar.setLayout(null);
         jpJogar.setBackground(Color.cyan);
+        jpJogar.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        jpJogar.setLayout(new BorderLayout());
+        jpJogar.add(jlVidas);
+        jpJogar.add(jlVidasImage,BorderLayout.NORTH);
+        jpJogar.add(jlPontuacao);
+        tela.add(jpJogar);
         Jogo jogo = new Jogo();
-        tela.getContentPane().add(jogo);
-        tela.pack();
+        jpJogar.add(jogo);
         Thread thread= new Thread(jogo);
         thread.start();
-        
     }
 
     private void telaRanking() {
