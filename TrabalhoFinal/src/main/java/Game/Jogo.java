@@ -111,9 +111,9 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
                 e.printStackTrace();
             }
             switch(lifes){
-                case 3: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/ThreeHearts.png")); break;
-                case 2: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/TwoHearts.png")); break;
-                case 1: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/OneHeart.png")); break;
+                case 3: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/ThreeHearts.png")); break;
+                case 2: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/TwoHearts.png")); break;
+                case 1: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/OneHeart.png")); break;
             }
         }
         JOptionPane.showMessageDialog(null, "Você perdeu");
