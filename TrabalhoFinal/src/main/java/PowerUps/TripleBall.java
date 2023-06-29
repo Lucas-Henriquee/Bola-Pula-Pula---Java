@@ -1,8 +1,8 @@
 package PowerUps;
 
-import Jogo.Bola;
-import Jogo.Jogador;
-import Jogo.Jogo;
+import Game.Bola;
+import Game.Jogador;
+import Game.Jogo;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;

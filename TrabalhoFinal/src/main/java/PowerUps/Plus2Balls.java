@@ -1,11 +1,12 @@
 package PowerUps;
 
-import Jogo.Jogador;
-import Jogo.Jogo;
+import Game.Bola;
+import Game.Jogador;
+import Game.Jogo;
 import java.awt.Rectangle;
 
-public class SwitchControls extends PowerUp {
-    public SwitchControls(int x, int y){
+public class Plus2Balls extends PowerUp{
+    public Plus2Balls(int x, int y){
         super(x,y);
     }
     
@@ -17,8 +18,8 @@ public class SwitchControls extends PowerUp {
         Rectangle bounds = new Rectangle(x,y,COMPRIMENTO,ALTURA);
         Rectangle boundsJogador = new Rectangle(Jogo.jogador.x,Jogo.jogador.y,Jogador.comprimento,Jogador.altura);
         if(bounds.intersects(boundsJogador)){
-            Jogador.velocidade*=-1;
-            Jogador.color*=-1;
+            Jogo.bolas.add(new Bola(Jogo.jogador.x+Jogador.comprimento/2,Jogo.jogador.y));
+            Jogo.bolas.add(new Bola(Jogo.jogador.x+Jogador.comprimento/2,Jogo.jogador.y));
             return true;
         }
         return false;

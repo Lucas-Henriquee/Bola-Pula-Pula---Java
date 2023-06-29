@@ -1,4 +1,4 @@
-package Jogo;
+package Game;
 
 import PowerUps.Plus2Balls;
 import PowerUps.SwitchControls;

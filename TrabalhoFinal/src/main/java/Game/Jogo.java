@@ -1,7 +1,8 @@
-package Jogo;
+package Game;
 
 import PowerUps.PowerUp;
 import view.Tela;
+import view.TelaJogar;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -92,7 +93,7 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
         g.drawImage(layer, 0, 0, COMPRIMENTO,ALTURA,null);
         
         bs.show();
-        Tela.jlPontuacao.setText("Pontuação: "+Jogo.pontuacao);
+        TelaJogar.jlPontuacao.setText("Pontuação: "+Jogo.pontuacao);
     }
 
     @Override
@@ -110,9 +111,9 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
                 e.printStackTrace();
             }
             switch(lifes){
-                case 3: Tela.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/ThreeHearts.png")); break;
-                case 2: Tela.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/TwoHearts.png")); break;
-                case 1: Tela.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/OneHeart.png")); break;
+                case 3: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/ThreeHearts.png")); break;
+                case 2: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/TwoHearts.png")); break;
+                case 1: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/Images/OneHeart.png")); break;
             }
         }
         JOptionPane.showMessageDialog(null, "Você perdeu");
