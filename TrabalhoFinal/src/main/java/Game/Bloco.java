@@ -16,7 +16,7 @@ public class Bloco {
     public void tick(){
         y+=ALTURA;
         if(y>=Jogo.ALTURA-Bloco.ALTURA){
-            Jogo.lifes=0;
+            Jogador.lifes=0;
         }
     }
     

@@ -18,7 +18,7 @@ public abstract class PowerUp {
     public abstract boolean tick();
     
     public void render(Graphics g){
-        ImageIcon gifIcon = new ImageIcon("src/main/java/Images/rainbow_star.gif");
+        ImageIcon gifIcon = new ImageIcon("src/main/java/images/rainbow_star.gif");
         Image gifImage = gifIcon.getImage();
         int width = gifImage.getWidth(null);
         int height = gifImage.getHeight(null);

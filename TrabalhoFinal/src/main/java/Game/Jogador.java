@@ -8,10 +8,12 @@ public class Jogador {
     public int x,y;
     public static int comprimento=200, altura=15;
     public static int velocidade=20, color=1;
-    
+    public static int lifes=4;
+
     public Jogador(int x, int y){
         this.x=x;
         this.y=y;
+        lifes=4;
     }
     
     public void tick(){
