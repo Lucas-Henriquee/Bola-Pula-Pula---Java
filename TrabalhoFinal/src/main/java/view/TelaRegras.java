@@ -25,14 +25,14 @@ public class TelaRegras extends JPanel implements ActionListener {
 
           JLabel jlRegras = new JLabel("Regras");
           jlRegras.setForeground(Color.black);
-          jlRegras.setFont(new Font("segoe UI", 1, 80));
-          jlRegras.setBounds(new Rectangle(450, 50, 750, 90));
+          jlRegras.setFont(new Font("segoe UI", 1, 65));
+          jlRegras.setBounds(new Rectangle(340, 30, 750, 90));
 
           JTextArea jtaRegras = new JTextArea();
           jtaRegras.setEditable(false);
           jtaRegras.setBackground(Color.cyan);
-          jtaRegras.setFont(new Font("segoe UI", 1, 30));
-          jtaRegras.setBounds(new Rectangle(5, 275, 1200, 480));
+          jtaRegras.setFont(new Font("segoe UI", 1, 25));
+          jtaRegras.setBounds(new Rectangle(35, 180, 900, 335));
           jtaRegras.setText("             O jogador controla uma barra que se move lateralmente. "
                     + "\n\nO objetivo é quebrar os blcos que são gerados de tempos em tempos.\n\n  "
                     + "            O jogador possui 3 vidas ao longo de cada partida.\n\n    "
@@ -40,11 +40,11 @@ public class TelaRegras extends JPanel implements ActionListener {
                     + "A cada bloco quebrado a pontuação será acrescida na pontuação total.");
 
           JButton jbVoltar = new JButton("Voltar");
-          jbVoltar.setFont(new Font("Segoe UI", 1, 50));
+          jbVoltar.setFont(new Font("Segoe UI", 1, 35));
           jbVoltar.setForeground(Color.black);
           jbVoltar.setBackground(new Color(153, 153, 153));
           jbVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbVoltar.setBounds(new Rectangle(450, 800, 300, 80));
+          jbVoltar.setBounds(new Rectangle(325, 560, 250, 70));
           jbVoltar.addActionListener(this);
 
           add(jlRegras);
