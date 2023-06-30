@@ -30,15 +30,15 @@ public class TelaMenu extends JPanel implements ActionListener {
 
           JLabel jlMenu = new JLabel("Menu do Jogo");
           jlMenu.setForeground(Color.black);
-          jlMenu.setFont(new Font("Segoe UI", 1, 80));
-          jlMenu.setBounds(new Rectangle(300, 50, 750, 90));
+          jlMenu.setFont(new Font("Segoe UI", 1, 65));
+          jlMenu.setBounds(new Rectangle(220, 25, 562, 85));
 
           jbJogar = new JButton("Jogar");
           jbJogar.setFont(new Font("Segoe UI", 1, 50));
           jbJogar.setForeground(Color.black);
           jbJogar.setBackground(new Color(153, 153, 153));
           jbJogar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbJogar.setBounds(new Rectangle(450, 250, 300, 80));
+          jbJogar.setBounds(new Rectangle(330, 155, 250, 70));
           jbJogar.addActionListener(this);
 
           jbRanking = new JButton("Ranking");
@@ -46,7 +46,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jbRanking.setForeground(Color.black);
           jbRanking.setBackground(new Color(153, 153, 153));
           jbRanking.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbRanking.setBounds(new Rectangle(450, 375, 300, 80));
+          jbRanking.setBounds(new Rectangle(330, 255, 250, 70));
           jbRanking.addActionListener(this);
 
           jbRegras = new JButton("Regras");
@@ -54,7 +54,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jbRegras.setForeground(Color.black);
           jbRegras.setBackground(new Color(153, 153, 153));
           jbRegras.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbRegras.setBounds(new Rectangle(450, 500, 300, 80));
+          jbRegras.setBounds(new Rectangle(330, 355, 250, 70));
           jbRegras.addActionListener(this);
 
           jbCreditos = new JButton("Créditos");
@@ -62,7 +62,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jbCreditos.setForeground(Color.black);
           jbCreditos.setBackground(new Color(153, 153, 153));
           jbCreditos.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbCreditos.setBounds(new Rectangle(450, 625, 300, 80));
+          jbCreditos.setBounds(new Rectangle(330, 455, 250, 70));
           jbCreditos.addActionListener(this);
 
           jbSair = new JButton("Sair");
@@ -70,7 +70,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jbSair.setForeground(Color.black);
           jbSair.setBackground(new Color(153, 153, 153));
           jbSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbSair.setBounds(new Rectangle(450, 750, 300, 80));
+          jbSair.setBounds(new Rectangle(330, 555, 250, 70));
           jbSair.addActionListener(this);
 
           add(jlMenu);
