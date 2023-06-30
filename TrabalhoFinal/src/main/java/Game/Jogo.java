@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 
 public class Jogo extends Canvas implements Runnable,KeyListener {
     
-    public static final int COMPRIMENTO = 1000, ALTURA = 800;
+    public static final int COMPRIMENTO = 900, ALTURA = 600;
     
     private int i=1000;
     public BufferedImage layer = new BufferedImage(COMPRIMENTO, ALTURA, BufferedImage.TYPE_INT_RGB);
@@ -63,7 +63,7 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
             Jogo.powerups.remove(powerup);
         }
         i++;
-        if(i>=100){
+        if(i>=500){
             for (Bloco bloco : Jogo.blocos){
             bloco.tick();
             }
