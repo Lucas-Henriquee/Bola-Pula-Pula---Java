@@ -25,25 +25,25 @@ public class TelaCreditos extends JPanel implements ActionListener {
 
           JLabel jlCreditos = new JLabel("Créditos");
           jlCreditos.setForeground(Color.black);
-          jlCreditos.setFont(new Font("segoe UI", 1, 80));
-          jlCreditos.setBounds(new Rectangle(420, 50, 750, 90));
+          jlCreditos.setFont(new Font("segoe UI", 1, 65));
+          jlCreditos.setBounds(new Rectangle(350, 35, 750, 90));
 
           JTextArea jtaCreditos = new JTextArea();
           jtaCreditos.setEditable(false);
           jtaCreditos.setBackground(Color.cyan);
-          jtaCreditos.setFont(new Font("segoe UI", 1, 35));
-          jtaCreditos.setBounds(new Rectangle(5, 245, 1200, 480));
+          jtaCreditos.setFont(new Font("segoe UI", 1, 32));
+          jtaCreditos.setBounds(new Rectangle(25, 172, 900, 335));
           jtaCreditos.setText("\n              Este é um trabalho de Orientação a Objetos\n\n      "
                     + "    relizado por Breno Fernandes, Breno Montanha,\n\n                  "
                     + "  Lucas Henrique e Pedro Henrique.\n\n\n\n               "
                     + "Esperamos que tenham gostado do jogo :)");
 
           JButton jbVoltar = new JButton("Voltar");
-          jbVoltar.setFont(new Font("Segoe UI", 1, 50));
+          jbVoltar.setFont(new Font("Segoe UI", 1, 35));
           jbVoltar.setForeground(Color.black);
           jbVoltar.setBackground(new Color(153, 153, 153));
           jbVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbVoltar.setBounds(new Rectangle(450, 800, 300, 80));
+          jbVoltar.setBounds(new Rectangle(330, 560, 250, 70));
           jbVoltar.addActionListener(this);
 
           add(jlCreditos);
