@@ -3,6 +3,7 @@ package Game;
 import PowerUps.PowerUp;
 import view.Tela;
 import view.TelaJogar;
+import view.TelaRanking;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -27,7 +28,6 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
     
     private int i=1000;
     public BufferedImage layer = new BufferedImage(COMPRIMENTO, ALTURA, BufferedImage.TYPE_INT_RGB);
-    public static int lifes=3;
     public static Jogador jogador;
     public static List<Bloco> blocos = new ArrayList<>();
     public static List<Bola> bolas = new ArrayList<>();
@@ -37,7 +37,9 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
         this.setPreferredSize(new Dimension(COMPRIMENTO,ALTURA));
         this.addKeyListener(this);
         jogador= new Jogador(COMPRIMENTO/2-Jogador.comprimento/2, ALTURA-15);
-        bolas.add(new Bola(jogador.x+Jogador.comprimento/2, ALTURA-Jogador.altura));;
+        blocos.clear();
+        powerups.clear();
+        bolas.clear();
     }
     
     public void tick(){
@@ -98,11 +100,17 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
 
     @Override
     public void run() {
-        while(lifes>0){
+        while(Jogador.lifes>0){
             tick();
             render();
             if(bolas.isEmpty()){
-                lifes--;
+                Jogador.lifes--;
+                switch(Jogador.lifes){
+                case 3: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/ThreeHearts.png")); break;
+                case 2: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/TwoHearts.png")); break;
+                case 1: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/OneHeart.png")); break;
+                case 0: TelaJogar.jlVidasImage.setIcon(null);
+                }
                 bolas.add(new Bola(jogador.x+Jogador.comprimento/2, ALTURA-Jogador.altura));
             }
             try{
@@ -110,13 +118,9 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
-            switch(lifes){
-                case 3: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/ThreeHearts.png")); break;
-                case 2: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/TwoHearts.png")); break;
-                case 1: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/OneHeart.png")); break;
-            }
         }
         JOptionPane.showMessageDialog(null, "Você perdeu");
+        new TelaRanking();
     }
 
     @Override
