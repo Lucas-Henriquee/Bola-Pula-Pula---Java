@@ -34,7 +34,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jlMenu.setBounds(new Rectangle(220, 25, 562, 85));
 
           jbJogar = new JButton("Jogar");
-          jbJogar.setFont(new Font("Segoe UI", 1, 50));
+          jbJogar.setFont(new Font("Segoe UI", 1, 35));
           jbJogar.setForeground(Color.black);
           jbJogar.setBackground(new Color(153, 153, 153));
           jbJogar.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -42,7 +42,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jbJogar.addActionListener(this);
 
           jbRanking = new JButton("Ranking");
-          jbRanking.setFont(new Font("Segoe UI", 1, 50));
+          jbRanking.setFont(new Font("Segoe UI", 1, 35));
           jbRanking.setForeground(Color.black);
           jbRanking.setBackground(new Color(153, 153, 153));
           jbRanking.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -50,7 +50,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jbRanking.addActionListener(this);
 
           jbRegras = new JButton("Regras");
-          jbRegras.setFont(new Font("Segoe UI", 1, 50));
+          jbRegras.setFont(new Font("Segoe UI", 1, 35));
           jbRegras.setForeground(Color.black);
           jbRegras.setBackground(new Color(153, 153, 153));
           jbRegras.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -58,7 +58,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jbRegras.addActionListener(this);
 
           jbCreditos = new JButton("Créditos");
-          jbCreditos.setFont(new Font("Segoe UI", 1, 50));
+          jbCreditos.setFont(new Font("Segoe UI", 1, 35));
           jbCreditos.setForeground(Color.black);
           jbCreditos.setBackground(new Color(153, 153, 153));
           jbCreditos.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -66,7 +66,7 @@ public class TelaMenu extends JPanel implements ActionListener {
           jbCreditos.addActionListener(this);
 
           jbSair = new JButton("Sair");
-          jbSair.setFont(new Font("Segoe UI", 1, 50));
+          jbSair.setFont(new Font("Segoe UI", 1, 35));
           jbSair.setForeground(Color.black);
           jbSair.setBackground(new Color(153, 153, 153));
           jbSair.setCursor(new Cursor(Cursor.HAND_CURSOR));
