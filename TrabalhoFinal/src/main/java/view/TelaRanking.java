@@ -41,15 +41,15 @@ public class TelaRanking extends JPanel implements ActionListener {
 
           JLabel jlRanking = new JLabel("Ranking");
           jlRanking.setForeground(Color.black);
-          jlRanking.setFont(new Font("Segoe UI", 1, 80));
-          jlRanking.setBounds(new Rectangle(410, 50, 750, 90));
+          jlRanking.setFont(new Font("Segoe UI", 1, 65));
+          jlRanking.setBounds(new Rectangle(340, 30, 750, 80));
 
           JButton jbVoltar = new JButton("Voltar");
-          jbVoltar.setFont(new Font("Segoe UI", 1, 50));
+          jbVoltar.setFont(new Font("Segoe UI", 1, 35));
           jbVoltar.setForeground(Color.black);
           jbVoltar.setBackground(new Color(153, 153, 153));
           jbVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbVoltar.setBounds(new Rectangle(450, 800, 300, 80));
+          jbVoltar.setBounds(new Rectangle(325, 560, 250, 70));
           jbVoltar.addActionListener(this);
 
           String[] colunas = { "Nome", "Pontuação" };
@@ -76,12 +76,12 @@ public class TelaRanking extends JPanel implements ActionListener {
           };
 
           JTable tabela = new JTable(tableModel);
-          Font fonte = tabela.getFont().deriveFont(21f);
+          Font fonte = tabela.getFont().deriveFont(18f);
           tabela.setFont(fonte);
           tabela.setRowHeight(tabela.getRowHeight() + 10 + 10);
 
           JTableHeader cabecalho = tabela.getTableHeader();
-          Font fonteCabecalho = cabecalho.getFont().deriveFont(28f);
+          Font fonteCabecalho = cabecalho.getFont().deriveFont(22f);
           cabecalho.setFont(fonteCabecalho);
 
           DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
@@ -93,7 +93,7 @@ public class TelaRanking extends JPanel implements ActionListener {
           }
 
           JScrollPane scrollPane = new JScrollPane(tabela);
-          scrollPane.setPreferredSize(new java.awt.Dimension(750, 600));
+          scrollPane.setPreferredSize(new java.awt.Dimension(500, 375));
 
           layout.gridy = 0;
           add(jlRanking, layout);
