@@ -29,24 +29,24 @@ public class TelaInicial extends JPanel implements ActionListener {
           GridBagConstraints layout = new GridBagConstraints();
           layout.anchor = GridBagConstraints.CENTER;
 
-          layout.insets = new Insets(50, 0, 50, 0);
+          layout.insets = new Insets(20, 0, 20, 0);
 
           JLabel jlInicio = new JLabel("Bola Pula Pula");
           jlInicio.setForeground(Color.black);
-          jlInicio.setFont(new Font("Segoe UI", 1, 90));
-          jlInicio.setBounds(230, 50, 750, 75);
+          jlInicio.setFont(new Font("Segoe UI", 1, 80));
+          jlInicio.setBounds(230, 30, 750, 60);
 
           JButton jbIniciar = new JButton("Iniciar");
-          jbIniciar.setFont(new Font("Segoe UI", 1, 50));
+          jbIniciar.setFont(new Font("Segoe UI", 1, 40));
           jbIniciar.setForeground(Color.black);
           jbIniciar.setBackground(new Color(153, 153, 153));
           jbIniciar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-          jbIniciar.setBounds(480, 800, 250, 80);
+          jbIniciar.setBounds(480, 800, 250, 70);
           jbIniciar.addActionListener(this);
 
           JLabel jlImagem = new JLabel();
           jlImagem.setIcon(new ImageIcon("src/main/java/images/ball.png"));
-          jlImagem.setBounds(350, 190, 350, 450);
+          jlImagem.setLocation(350, 270);
 
           layout.gridy = 0;
           add(jlInicio, layout);
