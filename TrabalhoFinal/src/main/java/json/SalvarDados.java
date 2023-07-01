@@ -1,11 +1,9 @@
 package json;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class SalvarDados {
      public static void saveToJsonFile(String nome, double pontuacao, String filePath) {

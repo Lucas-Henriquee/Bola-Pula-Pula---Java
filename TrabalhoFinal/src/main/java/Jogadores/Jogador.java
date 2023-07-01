@@ -1,8 +1,7 @@
 package Jogadores;
 
 import Game.Jogo;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 public class Jogador {
     public boolean right, left;

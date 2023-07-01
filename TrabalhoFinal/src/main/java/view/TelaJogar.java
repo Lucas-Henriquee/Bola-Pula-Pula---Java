@@ -1,13 +1,7 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 import Game.Jogo;
 
@@ -15,6 +9,7 @@ public class TelaJogar extends JPanel {
      public static JLabel jlPontuacao = new JLabel();
      public static JLabel jlVidasImage = new JLabel();
      public static JLabel jlSpecial = new JLabel();
+
      public TelaJogar(String NomeDoJogador) {
           Tela.visor.getContentPane().removeAll();
           JLabel jlVidas = new JLabel("Vidas: ");
@@ -25,7 +20,7 @@ public class TelaJogar extends JPanel {
           jlSpecial.setFont(new Font("Segoe UI", 1, 20));
           setBackground(Color.cyan);
           setPreferredSize(new Dimension(Tela.WIDTH, Tela.HEIGHT));
-          setLayout(new FlowLayout(FlowLayout.CENTER,75,5));
+          setLayout(new FlowLayout(FlowLayout.CENTER, 75, 5));
           JPanel vidas = new JPanel(new FlowLayout(FlowLayout.LEADING));
           vidas.setPreferredSize(new Dimension(300, 30));
           vidas.setBackground(Color.cyan);
@@ -35,14 +30,13 @@ public class TelaJogar extends JPanel {
           add(jlSpecial);
           add(jlPontuacao);
           Tela.visor.add(this);
-          if(NomeDoJogador.contains("-")){
-               Jogo jogo = new Jogo(NomeDoJogador,1);
+          if (NomeDoJogador.contains("-")) {
+               Jogo jogo = new Jogo(NomeDoJogador, 1);
                add(jogo);
                Thread thread = new Thread(jogo);
                thread.start();
-          }
-          else{
-               Jogo jogo = new Jogo(NomeDoJogador,0);
+          } else {
+               Jogo jogo = new Jogo(NomeDoJogador, 0);
                add(jogo);
                Thread thread = new Thread(jogo);
                thread.start();

@@ -1,11 +1,11 @@
 package json;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.gson.*;
+import com.google.gson.reflect.*;
 
 import java.io.*;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+import java.lang.reflect.*;
+import java.util.*;
 
 public class CarregarDados {
      public static ArrayList<Object[]> readFromJsonFile(String filePath) {

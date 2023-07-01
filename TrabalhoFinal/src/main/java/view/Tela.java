@@ -1,11 +1,7 @@
 package view;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
-/**
- *
- * @author Lucas Henrique
- */
 public class Tela {
 
      public static JFrame visor;

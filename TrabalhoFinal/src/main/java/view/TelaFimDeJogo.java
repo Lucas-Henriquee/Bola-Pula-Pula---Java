@@ -1,19 +1,8 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.Insets;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 import Game.Jogo;
 import json.SalvarDados;
@@ -36,13 +25,13 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
 
         layout.insets = new Insets(25, 0, 75, 0);
 
-        JLabel jlParabens = new JLabel("Parabéns "+Jogo.jogador.nome);
+        JLabel jlParabens = new JLabel("Parabéns " + Jogo.jogador.nome);
         jlParabens.setIcon(new ImageIcon("src/main/java/images/trofeu.png"));
         jlParabens.setForeground(Color.black);
         jlParabens.setFont(new Font("Segoe UI", 1, 40));
         jlParabens.setBounds(230, 30, 750, 60);
 
-        JLabel jlPontos = new JLabel("Você fez "+Jogo.jogador.pontuacao+" pontos");
+        JLabel jlPontos = new JLabel("Você fez " + Jogo.jogador.pontuacao + " pontos");
         jlPontos.setForeground(Color.black);
         jlPontos.setFont(new Font("Segoe UI", 1, 40));
         jlPontos.setBounds(230, 30, 750, 60);
@@ -66,7 +55,7 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         layout.gridy = 0;
         add(jlParabens, layout);
         layout.gridy = 1;
-        add(jlPontos,layout);
+        add(jlPontos, layout);
         layout.gridy = 2;
         add(jbMenu, layout);
         layout.gridy = 3;
