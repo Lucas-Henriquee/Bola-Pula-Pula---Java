@@ -1,9 +1,12 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,18 +22,23 @@ public class TelaRegras extends JPanel implements ActionListener {
 
         Tela.visor.getContentPane().removeAll();
 
-        setLayout(null);
+        setPreferredSize(new Dimension(Tela.WIDTH, Tela.HEIGHT));
+        setLayout(new GridBagLayout());
         setBackground(Color.cyan);
+
+        GridBagConstraints layout = new GridBagConstraints();
+        layout.anchor = GridBagConstraints.CENTER;
+        layout.insets = new Insets(15, 100, 40, 100);
 
         JLabel jlRegras = new JLabel("Regras");
         jlRegras.setForeground(Color.black);
         jlRegras.setFont(new Font("segoe UI", 1, 65));
-        jlRegras.setBounds(new Rectangle(330, 30, 750, 90));
+        jlRegras.setBounds(new Rectangle(330, 0, 750, 90));
 
         JTextArea jtaRegras = new JTextArea();
         jtaRegras.setEditable(false);
         jtaRegras.setBackground(Color.cyan);
-        jtaRegras.setFont(new Font("segoe UI", 1, 22));
+        jtaRegras.setFont(new Font("segoe UI", 1, 25));
         jtaRegras.setBounds(new Rectangle(5, 180, 900, 335));
         jtaRegras.setText("             O jogador controla uma barra que se move lateralmente. "
                 + "\n\nO objetivo é quebrar os blcos que são gerados de tempos em tempos.\n\n  "
@@ -43,14 +51,19 @@ public class TelaRegras extends JPanel implements ActionListener {
         jbVoltar.setForeground(Color.black);
         jbVoltar.setBackground(new Color(153, 153, 153));
         jbVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jbVoltar.setBounds(new Rectangle(325, 560, 250, 70));
+        jbVoltar.setBounds(new Rectangle(450, 560, 250, 70));
         jbVoltar.addActionListener(this);
 
-        add(jlRegras);
-        add(jtaRegras);
-        add(jbVoltar);
+        layout.gridy = 0;
+        add(jlRegras, layout);
 
-        Tela.visor.getContentPane().add(this, BorderLayout.CENTER);
+        layout.gridy = 1;
+        add(jtaRegras, layout);
+
+        layout.gridy = 2;
+        add(jbVoltar, layout);
+
+        Tela.visor.getContentPane().add(this);
         Tela.visor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Tela.visor.revalidate();
         Tela.visor.repaint();

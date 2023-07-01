@@ -56,7 +56,7 @@ public class TelaRanking extends JPanel implements ActionListener {
 
           String[] colunas = { "Nome", "Pontuação" };
 
-          ArrayList<Object[]> dados = CarregarDados.readFromJsonFile("src/main/java/Database/dados.json");
+          ArrayList<Object[]> dados = CarregarDados.readFromJsonFile("src/main/java/Database/Dados.json");
 
           Collections.sort(dados, Comparator.comparingDouble(o -> (double) o[1]));
           Collections.reverse(dados);
@@ -69,7 +69,7 @@ public class TelaRanking extends JPanel implements ActionListener {
           };
 
           JTable tabela = new JTable(tableModel);
-          Font fonte = tabela.getFont().deriveFont(18l);
+          Font fonte = tabela.getFont().deriveFont(18f);
           tabela.setFont(fonte);
           tabela.setRowHeight(tabela.getRowHeight() + 10 + 10);
 
