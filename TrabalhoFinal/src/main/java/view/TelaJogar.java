@@ -15,7 +15,7 @@ public class TelaJogar extends JPanel {
      public static JLabel jlPontuacao = new JLabel();
      public static JLabel jlVidasImage = new JLabel();
      public static JLabel jlSpecial = new JLabel();
-     public TelaJogar() {
+     public TelaJogar(String NomeDoJogador) {
           Tela.visor.getContentPane().removeAll();
           JLabel jlVidas = new JLabel("Vidas: ");
           jlPontuacao.setFont(new Font("Segoe UI", 1, 20));
@@ -35,7 +35,7 @@ public class TelaJogar extends JPanel {
           add(jlSpecial);
           add(jlPontuacao);
           Tela.visor.add(this);
-          Jogo jogo = new Jogo("Teste",0);
+          Jogo jogo = new Jogo(NomeDoJogador,0);
           add(jogo);
           Thread thread = new Thread(jogo);
           thread.start();
