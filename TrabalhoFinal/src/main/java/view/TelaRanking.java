@@ -56,7 +56,7 @@ public class TelaRanking extends JPanel implements ActionListener {
 
           String[] colunas = { "Nome", "Pontuação" };
 
-          ArrayList<Object[]> dados = CarregarDados.readFromJsonFile("src/main/java/Database/Dados.json");
+          ArrayList<Object[]> dados = CarregarDados.readFromJsonFile("src/main/java/Database/dados.json");
 
           Collections.sort(dados, Comparator.comparingDouble(o -> (double) o[1]));
           Collections.reverse(dados);
