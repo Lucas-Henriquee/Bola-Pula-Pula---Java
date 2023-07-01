@@ -1,8 +1,8 @@
 package Game;
 
 import PowerUps.PowerUp;
+import view.TelaFimDeJogo;
 import view.TelaJogar;
-import view.TelaRanking;
 import Jogadores.Jogador;
 import Jogadores.Nan;
 
@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 
 
@@ -106,16 +105,18 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
 
     @Override
     public void run() {
-        while(Jogador.lifes>0){
+        while(jogador.lifes>0){
             tick();
             render();
             if(bolas.isEmpty()){
-                Jogador.lifes--;
-                switch(Jogador.lifes){
-                case 3: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/ThreeHearts.png")); break;
-                case 2: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/TwoHearts.png")); break;
-                case 1: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/OneHeart.png")); break;
-                case 0: TelaJogar.jlVidasImage.setIcon(null);
+                jogador.lifes--;
+                switch(jogador.lifes){
+                    case 5: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/FiveHearts.png")); break;
+                    case 4: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/FourHearts.png")); break;
+                    case 3: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/ThreeHearts.png")); break;
+                    case 2: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/TwoHearts.png")); break;
+                    case 1: TelaJogar.jlVidasImage.setIcon(new ImageIcon("src/main/java/images/OneHeart.png")); break;
+                    case 0: TelaJogar.jlVidasImage.setIcon(null);
                 }
                 bolas.add(new Bola(jogador.x+Jogador.comprimento/2, ALTURA-Jogador.altura));
             }
@@ -125,8 +126,7 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
                 e.printStackTrace();
             }
         }
-        JOptionPane.showMessageDialog(null, "Você perdeu");
-        new TelaRanking();
+        new TelaFimDeJogo();
     }
 
     @Override

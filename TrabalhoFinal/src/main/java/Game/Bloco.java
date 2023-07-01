@@ -1,6 +1,5 @@
 package Game;
 
-import Jogadores.Jogador;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
@@ -17,7 +16,7 @@ public class Bloco {
     public void tick(){
         y+=ALTURA;
         if(y>=Jogo.ALTURA-Bloco.ALTURA){
-            Jogador.lifes=0;
+            Jogo.jogador.lifes=0;
         }
     }
     

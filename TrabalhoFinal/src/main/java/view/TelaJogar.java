@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -13,7 +11,7 @@ import javax.swing.JPanel;
 
 import Game.Jogo;
 
-public class TelaJogar extends JPanel implements ActionListener {
+public class TelaJogar extends JPanel {
      public static JLabel jlPontuacao = new JLabel();
      public static JLabel jlVidasImage = new JLabel();
      public static JLabel jlSpecial = new JLabel();
@@ -27,9 +25,9 @@ public class TelaJogar extends JPanel implements ActionListener {
           jlSpecial.setFont(new Font("Segoe UI", 1, 20));
           setBackground(Color.cyan);
           setPreferredSize(new Dimension(Tela.WIDTH, Tela.HEIGHT));
-          setLayout(new FlowLayout(FlowLayout.CENTER,100,0));
+          setLayout(new FlowLayout(FlowLayout.CENTER,75,5));
           JPanel vidas = new JPanel(new FlowLayout(FlowLayout.LEADING));
-          vidas.setPreferredSize(new Dimension(250, 30));
+          vidas.setPreferredSize(new Dimension(300, 30));
           vidas.setBackground(Color.cyan);
           vidas.add(jlVidas);
           vidas.add(jlVidasImage);
@@ -37,17 +35,10 @@ public class TelaJogar extends JPanel implements ActionListener {
           add(jlSpecial);
           add(jlPontuacao);
           Tela.visor.add(this);
-          Jogo jogo = new Jogo("Teste",1);
+          Jogo jogo = new Jogo("Teste",0);
           add(jogo);
           Thread thread = new Thread(jogo);
           thread.start();
-          Tela.visor.revalidate();
-          Tela.visor.repaint();
      }
 
-     @Override
-     public void actionPerformed(ActionEvent e) {
-          // TODO Auto-generated method stub
-          throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-     }
 }

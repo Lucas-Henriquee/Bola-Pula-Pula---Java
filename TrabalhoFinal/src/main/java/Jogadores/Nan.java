@@ -8,6 +8,7 @@ public class Nan extends Jogador {
     public Nan(int x, int y, String NomeDoJogador){
         super(x,y,NomeDoJogador);
         special=3;
+        lifes=6;
     }
 
     public void tick(){

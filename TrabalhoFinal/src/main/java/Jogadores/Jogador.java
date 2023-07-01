@@ -10,7 +10,7 @@ public class Jogador {
     public int special, color=1;
     public static int comprimento=200, altura=15;
     public static int velocidade=20;
-    public static int lifes=4;
+    public int lifes=4;
 
     public long pontuacao;
 
