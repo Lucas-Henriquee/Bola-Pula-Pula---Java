@@ -54,13 +54,14 @@ public class TelaLeNome extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String Nome = textField.getText();
-        String NomeRegex = "^[A-Z-][A-Za-z][a-z]*$";
+        String NomeRegex = "^[A-Z-][A-Za-z]*$";
         Pattern pattern = Pattern.compile(NomeRegex);
         Matcher matcher = pattern.matcher(Nome);
 
         if (matcher.matches()) {
             new TelaJogar(Nome);
         } else {
+            JOptionPane.showMessageDialog(null,"Você Inseriu um caractere inválido");
             textField.setText("");
         }
     }
