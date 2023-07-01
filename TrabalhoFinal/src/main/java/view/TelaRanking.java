@@ -13,9 +13,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,9 +24,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-import Jogadores.HistoricoJogadores;
 import json.CarregarDados;
-import json.SalvarDados;
 
 public class TelaRanking extends JPanel implements ActionListener {
 
@@ -61,12 +56,10 @@ public class TelaRanking extends JPanel implements ActionListener {
 
           String[] colunas = { "Nome", "Pontuação" };
 
-          ArrayList<Object[]> dadosLidos = CarregarDados.readFromJsonFile(HistoricoJogadores.filePath);
+          ArrayList<Object[]> dados = CarregarDados.readFromJsonFile("src/main/java/Database/dados.json");
 
-          HistoricoJogadores.dados = dadosLidos;
-
-          Collections.sort(HistoricoJogadores.dados, Comparator.comparingDouble(o -> (double) o[1]));
-          Collections.reverse(HistoricoJogadores.dados);
+          Collections.sort(dados, Comparator.comparingDouble(o -> (double) o[1]));
+          Collections.reverse(dados);
 
           DefaultTableModel tableModel = new DefaultTableModel(colunas, 0) {
                @Override
@@ -76,7 +69,7 @@ public class TelaRanking extends JPanel implements ActionListener {
           };
 
           JTable tabela = new JTable(tableModel);
-          Font fonte = tabela.getFont().deriveFont(18f);
+          Font fonte = tabela.getFont().deriveFont(18l);
           tabela.setFont(fonte);
           tabela.setRowHeight(tabela.getRowHeight() + 10 + 10);
 
@@ -88,14 +81,11 @@ public class TelaRanking extends JPanel implements ActionListener {
           cellRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
           tabela.setDefaultRenderer(Object.class, cellRenderer);
 
-          for (Object[] linha : HistoricoJogadores.dados) {
-               tableModel.addRow(linha);
-          }
-
           JScrollPane scrollPane = new JScrollPane(tabela);
           scrollPane.setPreferredSize(new java.awt.Dimension(500, 375));
 
           layout.gridy = 0;
+
           add(jlRanking, layout);
 
           layout.gridy = 1;

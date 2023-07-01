@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Game.Jogo;
-import Jogadores.HistoricoJogadores;
 import json.SalvarDados;
 
 public class TelaFimDeJogo extends JPanel implements ActionListener {
@@ -64,9 +63,7 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         layout.gridy = 2;
         add(jbRanking, layout);
 
-        HistoricoJogadores.dados.clear();
-        HistoricoJogadores.dados.add(new Object[] { Jogo.jogador.nome, Jogo.jogador.pontuacao });
-        SalvarDados.saveToJsonFile(HistoricoJogadores.dados, HistoricoJogadores.filePath);
+        SalvarDados.saveToJsonFile(Jogo.jogador.nome, Jogo.jogador.pontuacao, "src/main/java/Database/Dados.json");
 
         Tela.visor.add(this);
         Tela.visor.revalidate();
