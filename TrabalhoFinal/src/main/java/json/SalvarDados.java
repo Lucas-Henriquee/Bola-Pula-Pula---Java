@@ -6,15 +6,12 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class SalvarDados {
-     public static void saveToJsonFile(String nome, long pontos, String filePath) {
-          // Criação do objeto que será salvo no arquivo JSON
-          Object[] dados = new Object[] { nome, pontos };
-
-          // Criação do ArrayList e adição do objeto
+     public static void saveToJsonFile(String text, long number, String filePath) {
+          // Cria um ArrayList<Object[]> com a string e o long
+          Object[] data = { text, number };
           ArrayList<Object[]> arrayList = new ArrayList<>();
-          arrayList.add(dados);
+          arrayList.add(data);
 
-          // Conversão do ArrayList para JSON
           Gson gson = new Gson();
           String json = gson.toJson(arrayList);
 

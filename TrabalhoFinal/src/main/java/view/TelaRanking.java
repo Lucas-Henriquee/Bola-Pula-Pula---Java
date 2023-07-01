@@ -84,6 +84,10 @@ public class TelaRanking extends JPanel implements ActionListener {
           JScrollPane scrollPane = new JScrollPane(tabela);
           scrollPane.setPreferredSize(new java.awt.Dimension(500, 375));
 
+          for (Object[] linha : dados) {
+               tableModel.addRow(linha);
+          }
+
           layout.gridy = 0;
 
           add(jlRanking, layout);

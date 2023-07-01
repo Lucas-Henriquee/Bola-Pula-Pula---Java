@@ -14,17 +14,17 @@ public class CarregarDados {
           try {
                FileReader fileReader = new FileReader(filePath);
                BufferedReader bufferedReader = new BufferedReader(fileReader);
-               String line;
 
+               StringBuilder jsonContent = new StringBuilder();
+               String line;
                while ((line = bufferedReader.readLine()) != null) {
-                    Gson gson = new Gson();
-                    Type type = new TypeToken<ArrayList<Object[]>>() {
-                    }.getType();
-                    ArrayList<Object[]> items = gson.fromJson(line, type);
-                    if (items != null) {
-                         arrayList.addAll(items);
-                    }
+                    jsonContent.append(line);
                }
+
+               Gson gson = new Gson();
+               Type type = new TypeToken<ArrayList<Object[]>>() {
+               }.getType();
+               arrayList = gson.fromJson(jsonContent.toString(), type);
 
                bufferedReader.close();
           } catch (IOException e) {
