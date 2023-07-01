@@ -17,7 +17,7 @@ public class ReducesPlayerLenght extends PowerUp {
         Rectangle bounds = new Rectangle(x,y,COMPRIMENTO,ALTURA);
         Rectangle boundsJogador = new Rectangle(Jogo.jogador.x,Jogo.jogador.y,Jogador.comprimento,Jogador.altura);
         if(bounds.intersects(boundsJogador)){
-            if(Jogador.comprimento>50){
+            if(Jogador.comprimento>100){
                 Jogador.comprimento-=50;
                 Jogo.jogador.x-=25;
             }

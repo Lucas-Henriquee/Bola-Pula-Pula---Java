@@ -26,7 +26,7 @@ public class TelaRegras extends JPanel implements ActionListener {
         JTextArea jtaRegras = new JTextArea();
         jtaRegras.setEditable(false);
         jtaRegras.setBackground(Color.cyan);
-        jtaRegras.setFont(new Font("segoe UI", 1, 25));
+        jtaRegras.setFont(new Font("segoe UI", 1, 22));
         jtaRegras.setBounds(new Rectangle(5, 180, 900, 335));
         jtaRegras.setText("             O jogador controla uma barra que se move lateralmente. "
                 + "\n\nO objetivo é quebrar os blcos que são gerados de tempos em tempos.\n\n  "

@@ -62,7 +62,7 @@ public class TelaRanking extends JPanel implements ActionListener {
           tabela.setDefaultRenderer(Object.class, cellRenderer);
 
           JScrollPane scrollPane = new JScrollPane(tabela);
-          scrollPane.setPreferredSize(new java.awt.Dimension(500, 375));
+          scrollPane.setPreferredSize(new java.awt.Dimension(500, 357));
 
           if (dados != null) {
                for (Object[] linha : dados) {

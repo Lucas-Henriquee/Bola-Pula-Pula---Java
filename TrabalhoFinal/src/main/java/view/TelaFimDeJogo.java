@@ -52,14 +52,17 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         jbRanking.setBounds(480, 800, 250, 70);
         jbRanking.addActionListener(this);
 
+        JPanel jpBotoes= new JPanel(new FlowLayout(FlowLayout.CENTER,100,0));
+        jpBotoes.setBackground(Color.cyan);
+        jpBotoes.setPreferredSize(new Dimension(Tela.WIDTH,80));
+        jpBotoes.add(jbMenu);
+        jpBotoes.add(jbRanking);
         layout.gridy = 0;
         add(jlParabens, layout);
         layout.gridy = 1;
         add(jlPontos, layout);
         layout.gridy = 2;
-        add(jbMenu, layout);
-        layout.gridy = 3;
-        add(jbRanking, layout);
+        add(jpBotoes, layout);
 
         SalvarDados.saveToJsonFile(Jogo.jogador.nome, Jogo.jogador.pontuacao, "src/main/java/Database/Dados.json");
 

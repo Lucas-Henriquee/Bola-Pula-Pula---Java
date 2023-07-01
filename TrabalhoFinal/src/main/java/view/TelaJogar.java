@@ -31,7 +31,8 @@ public class TelaJogar extends JPanel {
           add(jlPontuacao);
           Tela.visor.add(this);
           if (NomeDoJogador.contains("-")) {
-               Jogo jogo = new Jogo(NomeDoJogador, 1);
+               NomeDoJogador=NomeDoJogador.replace("-", "");
+               Jogo jogo = new Jogo(NomeDoJogador+"*", 1);
                add(jogo);
                Thread thread = new Thread(jogo);
                thread.start();

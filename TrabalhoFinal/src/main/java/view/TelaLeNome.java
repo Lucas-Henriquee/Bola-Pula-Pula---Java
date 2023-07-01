@@ -2,11 +2,15 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.regex.*;
 import javax.swing.*;
 
-public class TelaLeNome extends JPanel implements ActionListener {
+import error.NomeException;
+import error.VerificaNome;
+
+public class TelaLeNome extends JPanel implements ActionListener{
     private JTextField textField;
+    private JButton jbJogar = new JButton("Jogar");
+    private JButton jbVoltar = new JButton("Voltar");
 
     public TelaLeNome() {
         Tela.visor.getContentPane().removeAll();
@@ -16,21 +20,20 @@ public class TelaLeNome extends JPanel implements ActionListener {
         setLayout(new GridBagLayout());
         GridBagConstraints layout = new GridBagConstraints();
         layout.anchor = GridBagConstraints.CENTER;
-        layout.insets = new Insets(20, 0, 20, 0);
-        JLabel jlInicio = new JLabel("Insira seu nome");
-        jlInicio.setForeground(Color.black);
-        jlInicio.setFont(new Font("Segoe UI", 1, 40));
-        jlInicio.setBounds(230, 30, 750, 60);
+        layout.insets = new Insets(20, 0, 10, 0);
+        JLabel jlInserirNome = new JLabel("Insira seu nome");
+        jlInserirNome.setForeground(Color.black);
+        jlInserirNome.setFont(new Font("Segoe UI", 1, 40));
+        jlInserirNome.setBounds(230, 30, 750, 60);
 
         JPanel jptextArea = new JPanel();
-        jptextArea.setPreferredSize(new Dimension(750, 60));
+        jptextArea.setPreferredSize(new Dimension(355, 60));
         jptextArea.setBackground(Color.cyan);
-        textField = new JTextField(10);
+        textField = new JTextField(8);
+        textField.setToolTipText("São válidas apenas letras e é necessário começar com uma letra maiúscula");
         textField.setFont(new Font("Segoe UI", 1, 40));
         jptextArea.add(textField);
 
-        JButton jbJogar = new JButton("Jogar");
-        jbJogar.setBounds(230, 60, 750, 60);
         jbJogar.setFont(new Font("Segoe UI", 1, 35));
         jbJogar.setForeground(Color.black);
         jbJogar.setBackground(new Color(153, 153, 153));
@@ -38,12 +41,85 @@ public class TelaLeNome extends JPanel implements ActionListener {
         jbJogar.setBounds(new Rectangle(330, 555, 250, 70));
         jbJogar.addActionListener(this);
 
+        jbVoltar.setFont(new Font("Segoe UI", 1, 35));
+        jbVoltar.setForeground(Color.black);
+        jbVoltar.setBackground(new Color(153, 153, 153));
+        jbVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jbVoltar.setBounds(new Rectangle(330, 555, 250, 70));
+        jbVoltar.addActionListener(this);
+
+        JPanel jpBaixo = new JPanel(new GridBagLayout());
+        jpBaixo.setBackground(getBackground());
+        GridBagConstraints layoutBaixo = new GridBagConstraints();
+        layoutBaixo.anchor = GridBagConstraints.CENTER;
+        layoutBaixo.insets = new Insets(0, 0, 5, 40);
+
+        JPanel jpPowerUps = new JPanel(new GridBagLayout());
+        jpPowerUps.setBackground(getBackground());
+        jpPowerUps.setPreferredSize(new Dimension(Tela.WIDTH, 500));
+        GridBagConstraints layoutPowerUps = new GridBagConstraints();
+        layoutPowerUps.anchor = GridBagConstraints.CENTER;
+        layoutPowerUps.insets = new Insets(5, 0, 30, 0);
+
+        layoutPowerUps.gridy = 0;
+        JLabel jlPowerUps = new JLabel("  Power Ups:");
+        jlPowerUps.setIcon(new ImageIcon("src/main/java/images/rainbow_star.gif"));
+        jlPowerUps.setPreferredSize(new Dimension(350, 35));
+        jlPowerUps.setFont(new Font("Segoe UI", 1, 40));
+        jpPowerUps.add(jlPowerUps, layoutPowerUps);
+
+        layoutPowerUps.gridy = 1;
+        JLabel jlDuasBolas = new JLabel("Aumentar 2 Bolas: Será gerado 2 bolas na barra do player");
+        jlDuasBolas.setFont(new Font("Segoe UI", 1, 20));
+        jpPowerUps.add(jlDuasBolas, layoutPowerUps);
+
+        layoutPowerUps.gridy = 2;
+        JLabel jlTriplicaBolas = new JLabel(
+                "Triplicar Bolas: Será gerado mais 2 bolas em cada uma das bolas existentes");
+        jlTriplicaBolas.setFont(new Font("Segoe UI", 1, 20));
+        jpPowerUps.add(jlTriplicaBolas, layoutPowerUps);
+
+        layoutPowerUps.gridy = 3;
+        JLabel jlAumentarBarra = new JLabel("Aumentar Barra: A barra será aumentada até o dobro do tamanho original");
+        jlAumentarBarra.setFont(new Font("Segoe UI", 1, 20));
+        jpPowerUps.add(jlAumentarBarra, layoutPowerUps);
+
+        layoutPowerUps.gridy = 4;
+        JLabel jlDiminuirBarra = new JLabel("Diminuir Barra: A barra será reduzida até a metade do tamanho original");
+        jlDiminuirBarra.setFont(new Font("Segoe UI", 1, 20));
+        jpPowerUps.add(jlDiminuirBarra, layoutPowerUps);
+
+        layoutPowerUps.gridy = 5;
+        JLabel jlTrocarControles = new JLabel(
+                "Trocar Controles: A cor da barra irá ficar vermelha e os inputs serão trocados");
+        jlTrocarControles.setFont(new Font("Segoe UI", 1, 20));
+        jpPowerUps.add(jlTrocarControles, layoutPowerUps);
+
+        layoutPowerUps.gridy = 6;
+        JLabel jlEspecial = new JLabel("Especial: Você pode usar o especial para eliminar todos os blocos com o Shift");
+        jlEspecial.setFont(new Font("Segoe UI", 1, 20));
+        jpPowerUps.add(jlEspecial, layoutPowerUps);
+
+        layoutBaixo.gridx = 1;
+        layoutBaixo.gridy = 0;
+        jpBaixo.add(jlInserirNome, layoutBaixo);
+
+        layoutBaixo.gridy = 1;
+
+        layout.gridx = 1;
+        jpBaixo.add(jptextArea, layoutBaixo);
+
+        layoutBaixo.gridx = 2;
+        jpBaixo.add(jbJogar, layoutBaixo);
+
         layout.gridy = 0;
-        add(jlInicio, layout);
+        add(jpPowerUps, layout);
+
         layout.gridy = 1;
-        add(jptextArea, layout);
-        layout.gridy = 2;
-        add(jbJogar, layout);
+        add(jpBaixo, layout);
+
+        layout.gridy=2;
+        add(jbVoltar, layout);
         Tela.visor.getContentPane().add(this);
         Tela.visor.pack();
         Tela.visor.revalidate();
@@ -52,17 +128,19 @@ public class TelaLeNome extends JPanel implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        String Nome = textField.getText();
-        String NomeRegex = "^[A-Z-][A-Za-z]*$";
-        Pattern pattern = Pattern.compile(NomeRegex);
-        Matcher matcher = pattern.matcher(Nome);
-
-        if (matcher.matches()) {
-            new TelaJogar(Nome);
-        } else {
-            JOptionPane.showMessageDialog(null,"Você Inseriu um caractere inválido");
-            textField.setText("");
+    public void actionPerformed(ActionEvent e){
+        if (e.getSource() == jbJogar) {
+            try{
+                if(VerificaNome.Checagem(textField.getText())){
+                    new TelaJogar(textField.getText());
+                }
+            }catch(NomeException ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+                textField.setText("");
+            }
+        }
+        else if(e.getSource()==jbVoltar){
+            new TelaMenu();
         }
     }
 }
