@@ -24,6 +24,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+import json.CarregarDados;
+import json.SalvarDados;
+
 public class TelaRanking extends JPanel implements ActionListener {
 
      public TelaRanking() {
@@ -57,7 +60,7 @@ public class TelaRanking extends JPanel implements ActionListener {
           long a = 9200000000000000000L;
           long b = 9000000000000000000L;
           long c = 8000000000000000000L;
-          long d = 3500000000000000000L;
+          long d = 35000000000000000L;
 
           ArrayList<Object[]> dados = new ArrayList<>();
           dados.add(new Object[] { "Lucas", a });
@@ -68,10 +71,17 @@ public class TelaRanking extends JPanel implements ActionListener {
           Collections.sort(dados, Comparator.comparingLong(o -> (long) o[1]));
           Collections.reverse(dados);
 
+          String filePath = "src/main/java/Database/dados.json";
+          SalvarDados.saveToJsonFile(dados, filePath);
+
+          ArrayList<Object[]> dadosLidos = CarregarDados.readFromJsonFile(filePath);
+
+          dados = dadosLidos;
+
           DefaultTableModel tableModel = new DefaultTableModel(colunas, 0) {
                @Override
                public boolean isCellEditable(int row, int column) {
-                    return false; // Desabilitando a edição das células
+                    return false;
                }
           };
 
