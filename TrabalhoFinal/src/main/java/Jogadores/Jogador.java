@@ -12,7 +12,7 @@ public class Jogador {
     public static int velocidade = 20;
     public int lifes = 4;
     public String nome;
-    public long pontuacao;
+    public double pontuacao;
 
     public Jogador(int x, int y, String NomeDoJogador) {
         this.x = x;

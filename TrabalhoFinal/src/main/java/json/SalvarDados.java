@@ -4,21 +4,31 @@ import com.google.gson.Gson;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class SalvarDados {
-     public static void saveToJsonFile(String text, long number, String filePath) {
-          // Cria um ArrayList<Object[]> com a string e o long
-          Object[] data = { text, number };
-          ArrayList<Object[]> arrayList = new ArrayList<>();
-          arrayList.add(data);
+     public static void saveToJsonFile(String nome, double pontuacao, String filePath) {
+
+          ArrayList<Object[]> dados = CarregarDados.readFromJsonFile(filePath);
+          Object[] novoDado = { nome, pontuacao };
+
+          if (dados == null)
+               dados = new ArrayList<>();
+
+          dados.add(novoDado);
+
+          if (dados != null) {
+               Collections.sort(dados, Comparator.comparingDouble(o -> (double) o[1]));
+               Collections.reverse(dados);
+          }
 
           Gson gson = new Gson();
-          String json = gson.toJson(arrayList);
+          String json = gson.toJson(dados);
 
           try {
-               FileWriter fileWriter = new FileWriter(filePath, true);
+               FileWriter fileWriter = new FileWriter(filePath, false);
                fileWriter.write(json);
-               fileWriter.write(System.lineSeparator()); // Adicionar uma nova linha para a próxima execução
                fileWriter.close();
           } catch (IOException e) {
                e.printStackTrace();
