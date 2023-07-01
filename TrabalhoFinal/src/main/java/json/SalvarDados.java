@@ -1,36 +1,33 @@
 package json;
 
-import java.io.IOException;
-import java.io.BufferedWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import com.google.gson.Gson;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class SalvarDados {
-     public static void saveToJsonFile(ArrayList<Object[]> dataList, String fileName) {
-          StringBuilder jsonBuilder = new StringBuilder();
+     public static void saveToJsonFile(ArrayList<Object[]> arrayList, String filePath) {
+          ArrayList<Object[]> convertedArrayList = new ArrayList<>();
 
-          for (int i = 0; i < dataList.size(); i++) {
-               Object[] data = dataList.get(i);
-
-               jsonBuilder.append("[");
-               for (int j = 0; j < data.length; j++) {
-                    jsonBuilder.append("\"").append(data[j]).append("\"");
-                    if (j < data.length - 1) {
-                         jsonBuilder.append(",");
-                    }
+          for (Object[] item : arrayList) {
+               if (item.length > 0 && item[0] instanceof Float) {
+                    Float floatValue = (Float) item[0];
+                    Long longValue = floatValue.longValue();
+                    item[0] = longValue;
                }
-               jsonBuilder.append("]");
-
-               if (i < dataList.size() - 1) {
-                    jsonBuilder.append(",");
-               }
+               convertedArrayList.add(item);
           }
 
-          try (BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get(fileName))) {
-               bufferedWriter.write(jsonBuilder.toString());
+          Gson gson = new Gson();
+          String json = gson.toJson(convertedArrayList);
+
+          try {
+               FileWriter fileWriter = new FileWriter(filePath, true);
+               fileWriter.write(json);
+               fileWriter.write(System.lineSeparator()); // Adicionar uma nova linha para a próxima execução
+               fileWriter.close();
           } catch (IOException e) {
-               System.err.println("Erro ao salvar o arquivo JSON: " + e.getMessage());
+               e.printStackTrace();
           }
      }
 }

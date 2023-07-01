@@ -1,42 +1,43 @@
 package json;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class CarregarDados {
-     public static ArrayList<Object[]> readFromJsonFile(String fileName) {
-          ArrayList<Object[]> dataList = new ArrayList<>();
+     public static ArrayList<Object[]> readFromJsonFile(String filePath) {
+          ArrayList<Object[]> arrayList = new ArrayList<>();
 
-          try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
-               StringBuilder jsonBuilder = new StringBuilder();
+          try {
+               FileReader fileReader = new FileReader(filePath);
+               BufferedReader bufferedReader = new BufferedReader(fileReader);
                String line;
 
                while ((line = bufferedReader.readLine()) != null) {
-                    jsonBuilder.append(line);
-               }
-
-               String jsonString = jsonBuilder.toString().trim();
-
-               jsonString = jsonString.substring(1, jsonString.length() - 1);
-
-               String[] dataStrings = jsonString.split("\\],\\[");
-               for (String dataString : dataStrings) {
-                    String[] values = dataString.split(",");
-
-                    Object[] data = new Object[values.length];
-                    for (int i = 0; i < values.length; i++) {
-                         data[i] = values[i].trim().replace("\"", "");
+                    Gson gson = new Gson();
+                    Type type = new TypeToken<ArrayList<Object[]>>() {
+                    }.getType();
+                    ArrayList<Object[]> items = gson.fromJson(line, type);
+                    if (items != null) {
+                         for (Object[] item : items) {
+                              if (item.length > 0 && item[0] instanceof Number) {
+                                   Number number = (Number) item[0];
+                                   long convertedNumber = number.longValue();
+                                   item[0] = convertedNumber;
+                              }
+                         }
+                         arrayList.addAll(items);
                     }
-
-                    dataList.add(data);
                }
 
+               bufferedReader.close();
           } catch (IOException e) {
-               System.err.println("Erro ao ler o arquivo JSON: " + e.getMessage());
+               e.printStackTrace();
           }
 
-          return dataList;
+          return arrayList;
      }
 }

@@ -14,6 +14,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Game.Jogo;
+import Jogadores.HistoricoJogadores;
+import json.SalvarDados;
+
 public class TelaFimDeJogo extends JPanel implements ActionListener {
 
     private JButton jbRanking;
@@ -60,8 +64,10 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         layout.gridy = 2;
         add(jbRanking, layout);
 
-        Tela.visor.add(this);
+        HistoricoJogadores.dados.add(new Object[]{Jogo.jogador.nome, Jogo.jogador.pontuacao});
+        SalvarDados.saveToJsonFile(HistoricoJogadores.dados, HistoricoJogadores.filePath);
 
+        Tela.visor.add(this);
         Tela.visor.revalidate();
         Tela.visor.repaint();
     }

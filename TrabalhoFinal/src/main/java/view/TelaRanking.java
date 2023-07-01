@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+import Jogadores.HistoricoJogadores;
 import json.CarregarDados;
 import json.SalvarDados;
 
@@ -57,26 +58,12 @@ public class TelaRanking extends JPanel implements ActionListener {
 
           String[] colunas = { "Nome", "Pontuação" };
 
-          long a = 9200000000000000000L;
-          long b = 9000000000000000000L;
-          long c = 8000000000000000000L;
-          long d = 35000000000000000L;
+          ArrayList<Object[]> dadosLidos = CarregarDados.readFromJsonFile(HistoricoJogadores.filePath);
 
-          ArrayList<Object[]> dados = new ArrayList<>();
-          dados.add(new Object[] { "Lucas", a });
-          dados.add(new Object[] { "BrenoM", b });
-          dados.add(new Object[] { "Pedro", c });
-          dados.add(new Object[] { "BrenoF", d });
+          HistoricoJogadores.dados = dadosLidos;
 
-          Collections.sort(dados, Comparator.comparingLong(o -> (long) o[1]));
-          Collections.reverse(dados);
-
-          String filePath = "src/main/java/Database/dados.json";
-          SalvarDados.saveToJsonFile(dados, filePath);
-
-          ArrayList<Object[]> dadosLidos = CarregarDados.readFromJsonFile(filePath);
-
-          dados = dadosLidos;
+          Collections.sort(HistoricoJogadores.dados, Comparator.comparingLong(o -> (long) o[1]));
+          Collections.reverse(HistoricoJogadores.dados);
 
           DefaultTableModel tableModel = new DefaultTableModel(colunas, 0) {
                @Override
@@ -86,19 +73,19 @@ public class TelaRanking extends JPanel implements ActionListener {
           };
 
           JTable tabela = new JTable(tableModel);
-          Font fonte = tabela.getFont().deriveFont(18f);
+          Font fonte = tabela.getFont().deriveFont(18l);
           tabela.setFont(fonte);
           tabela.setRowHeight(tabela.getRowHeight() + 10 + 10);
 
           JTableHeader cabecalho = tabela.getTableHeader();
-          Font fonteCabecalho = cabecalho.getFont().deriveFont(22f);
+          Font fonteCabecalho = cabecalho.getFont().deriveFont(22l);
           cabecalho.setFont(fonteCabecalho);
 
           DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
           cellRenderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
           tabela.setDefaultRenderer(Object.class, cellRenderer);
 
-          for (Object[] linha : dados) {
+          for (Object[] linha : HistoricoJogadores.dados) {
                tableModel.addRow(linha);
           }
 
