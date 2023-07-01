@@ -56,10 +56,7 @@ public class TelaRanking extends JPanel implements ActionListener {
 
           String[] colunas = { "Nome", "Pontuação" };
 
-          ArrayList<Object[]> dados = CarregarDados.readFromJsonFile("src/main/java/Database/dados.json");
-
-          Collections.sort(dados, Comparator.comparingDouble(o -> (double) o[1]));
-          Collections.reverse(dados);
+          ArrayList<Object[]> dados = CarregarDados.readFromJsonFile("src/main/java/Database/Dados.json");
 
           DefaultTableModel tableModel = new DefaultTableModel(colunas, 0) {
                @Override
@@ -84,8 +81,10 @@ public class TelaRanking extends JPanel implements ActionListener {
           JScrollPane scrollPane = new JScrollPane(tabela);
           scrollPane.setPreferredSize(new java.awt.Dimension(500, 375));
 
-          for (Object[] linha : dados) {
-               tableModel.addRow(linha);
+          if (dados != null) {
+               for (Object[] linha : dados) {
+                    tableModel.addRow(linha);
+               }
           }
 
           layout.gridy = 0;
