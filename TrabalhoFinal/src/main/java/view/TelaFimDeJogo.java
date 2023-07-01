@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Insets;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,10 +36,16 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
 
         layout.insets = new Insets(25, 0, 75, 0);
 
-        JLabel jlPerdeu = new JLabel("Você Perdeu");
-        jlPerdeu.setForeground(Color.black);
-        jlPerdeu.setFont(new Font("Segoe UI", 1, 80));
-        jlPerdeu.setBounds(230, 30, 750, 60);
+        JLabel jlParabens = new JLabel("Parabéns "+Jogo.jogador.nome);
+        jlParabens.setIcon(new ImageIcon("src/main/java/images/trofeu.png"));
+        jlParabens.setForeground(Color.black);
+        jlParabens.setFont(new Font("Segoe UI", 1, 40));
+        jlParabens.setBounds(230, 30, 750, 60);
+
+        JLabel jlPontos = new JLabel("Você fez "+Jogo.jogador.pontuacao+" pontos");
+        jlPontos.setForeground(Color.black);
+        jlPontos.setFont(new Font("Segoe UI", 1, 40));
+        jlPontos.setBounds(230, 30, 750, 60);
 
         jbMenu = new JButton("Menu");
         jbMenu.setFont(new Font("Segoe UI", 1, 40));
@@ -57,10 +64,12 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         jbRanking.addActionListener(this);
 
         layout.gridy = 0;
-        add(jlPerdeu, layout);
+        add(jlParabens, layout);
         layout.gridy = 1;
-        add(jbMenu, layout);
+        add(jlPontos,layout);
         layout.gridy = 2;
+        add(jbMenu, layout);
+        layout.gridy = 3;
         add(jbRanking, layout);
 
         SalvarDados.saveToJsonFile(Jogo.jogador.nome, Jogo.jogador.pontuacao, "src/main/java/Database/Dados.json");

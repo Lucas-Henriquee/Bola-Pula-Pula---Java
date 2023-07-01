@@ -89,7 +89,7 @@ public class TelaMenu extends JPanel implements ActionListener {
      @Override
      public void actionPerformed(ActionEvent ae) {
           if (ae.getSource() == jbJogar)
-               new TelaJogar();
+               new TelaLeNome();
           else if (ae.getSource() == jbRanking)
                new TelaRanking();
           else if (ae.getSource() == jbRegras)
