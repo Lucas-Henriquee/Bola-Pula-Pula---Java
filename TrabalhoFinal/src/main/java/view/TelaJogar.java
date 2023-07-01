@@ -35,10 +35,18 @@ public class TelaJogar extends JPanel {
           add(jlSpecial);
           add(jlPontuacao);
           Tela.visor.add(this);
-          Jogo jogo = new Jogo(NomeDoJogador,0);
-          add(jogo);
-          Thread thread = new Thread(jogo);
-          thread.start();
+          if(NomeDoJogador.contains("-")){
+               Jogo jogo = new Jogo(NomeDoJogador,1);
+               add(jogo);
+               Thread thread = new Thread(jogo);
+               thread.start();
+          }
+          else{
+               Jogo jogo = new Jogo(NomeDoJogador,0);
+               add(jogo);
+               Thread thread = new Thread(jogo);
+               thread.start();
+          }
      }
 
 }
