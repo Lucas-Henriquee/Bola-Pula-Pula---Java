@@ -1,5 +1,6 @@
 package Game;
 
+import Jogadores.Jogador;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
@@ -21,7 +22,7 @@ public class Bloco {
     }
     
     public void breaking(){
-        Jogo.pontuacao+=100;
+        Jogo.jogador.pontuacao+=100;
     }
     
     public void render(Graphics g){

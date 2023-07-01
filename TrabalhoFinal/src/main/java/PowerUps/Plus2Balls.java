@@ -1,7 +1,7 @@
 package PowerUps;
 
 import Game.Bola;
-import Game.Jogador;
+import Jogadores.Jogador;
 import Game.Jogo;
 import java.awt.Rectangle;
 
