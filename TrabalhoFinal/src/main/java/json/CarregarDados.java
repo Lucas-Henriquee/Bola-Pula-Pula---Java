@@ -22,13 +22,6 @@ public class CarregarDados {
                     }.getType();
                     ArrayList<Object[]> items = gson.fromJson(line, type);
                     if (items != null) {
-                         for (Object[] item : items) {
-                              if (item.length > 0 && item[0] instanceof Number) {
-                                   Number number = (Number) item[0];
-                                   long convertedNumber = number.longValue();
-                                   item[0] = convertedNumber;
-                              }
-                         }
                          arrayList.addAll(items);
                     }
                }

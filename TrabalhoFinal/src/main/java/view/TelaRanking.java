@@ -13,6 +13,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -62,7 +65,7 @@ public class TelaRanking extends JPanel implements ActionListener {
 
           HistoricoJogadores.dados = dadosLidos;
 
-          Collections.sort(HistoricoJogadores.dados, Comparator.comparingLong(o -> (long) o[1]));
+          Collections.sort(HistoricoJogadores.dados, Comparator.comparingDouble(o -> (double) o[1]));
           Collections.reverse(HistoricoJogadores.dados);
 
           DefaultTableModel tableModel = new DefaultTableModel(colunas, 0) {
@@ -73,12 +76,12 @@ public class TelaRanking extends JPanel implements ActionListener {
           };
 
           JTable tabela = new JTable(tableModel);
-          Font fonte = tabela.getFont().deriveFont(18l);
+          Font fonte = tabela.getFont().deriveFont(18f);
           tabela.setFont(fonte);
           tabela.setRowHeight(tabela.getRowHeight() + 10 + 10);
 
           JTableHeader cabecalho = tabela.getTableHeader();
-          Font fonteCabecalho = cabecalho.getFont().deriveFont(22l);
+          Font fonteCabecalho = cabecalho.getFont().deriveFont(22f);
           cabecalho.setFont(fonteCabecalho);
 
           DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();

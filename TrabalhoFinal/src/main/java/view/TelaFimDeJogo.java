@@ -23,7 +23,7 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
     private JButton jbRanking;
     private JButton jbMenu;
 
-    public TelaFimDeJogo(){
+    public TelaFimDeJogo() {
 
         Tela.visor.getContentPane().removeAll();
 
@@ -40,8 +40,8 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         jlPerdeu.setForeground(Color.black);
         jlPerdeu.setFont(new Font("Segoe UI", 1, 80));
         jlPerdeu.setBounds(230, 30, 750, 60);
-        
-        jbMenu= new JButton("Menu");
+
+        jbMenu = new JButton("Menu");
         jbMenu.setFont(new Font("Segoe UI", 1, 40));
         jbMenu.setForeground(Color.black);
         jbMenu.setBackground(new Color(153, 153, 153));
@@ -49,14 +49,14 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         jbMenu.setBounds(480, 800, 250, 70);
         jbMenu.addActionListener(this);
 
-        jbRanking= new JButton("Ranking");
+        jbRanking = new JButton("Ranking");
         jbRanking.setFont(new Font("Segoe UI", 1, 40));
         jbRanking.setForeground(Color.black);
         jbRanking.setBackground(new Color(153, 153, 153));
         jbRanking.setCursor(new Cursor(Cursor.HAND_CURSOR));
         jbRanking.setBounds(480, 800, 250, 70);
         jbRanking.addActionListener(this);
-        
+
         layout.gridy = 0;
         add(jlPerdeu, layout);
         layout.gridy = 1;
@@ -64,15 +64,14 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         layout.gridy = 2;
         add(jbRanking, layout);
 
-        HistoricoJogadores.dados.add(new Object[]{Jogo.jogador.nome, Jogo.jogador.pontuacao});
+        HistoricoJogadores.dados.clear();
+        HistoricoJogadores.dados.add(new Object[] { Jogo.jogador.nome, Jogo.jogador.pontuacao });
         SalvarDados.saveToJsonFile(HistoricoJogadores.dados, HistoricoJogadores.filePath);
 
         Tela.visor.add(this);
         Tela.visor.revalidate();
         Tela.visor.repaint();
     }
-
-
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -81,5 +80,5 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         else if (ae.getSource() == jbRanking)
             new TelaRanking();
     }
-    
+
 }
