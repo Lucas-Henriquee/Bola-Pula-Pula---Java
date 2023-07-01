@@ -10,6 +10,8 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -64,7 +66,15 @@ public class TelaLeNome extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String Nome =textField.getText();
-        new TelaJogar(Nome);
+        String Nome = textField.getText();
+        String NomeRegex = "^[A-Z-][A-Za-z][a-z]*$";
+        Pattern pattern = Pattern.compile(NomeRegex);
+        Matcher matcher = pattern.matcher(Nome);
+
+        if (matcher.matches()) {
+            new TelaJogar(Nome);
+        } else {
+            textField.setText("");
+        }
     }
 }
