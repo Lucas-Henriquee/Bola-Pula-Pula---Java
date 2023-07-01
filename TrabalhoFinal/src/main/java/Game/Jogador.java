@@ -6,6 +6,7 @@ import java.awt.Graphics;
 public class Jogador {
     public boolean right, left;
     public int x,y;
+    public int special;
     public static int comprimento=200, altura=15;
     public static int velocidade=20, color=1;
     public static int lifes=4;
@@ -14,6 +15,7 @@ public class Jogador {
         this.x=x;
         this.y=y;
         lifes=4;
+        special=1;
     }
     
     public void tick(){

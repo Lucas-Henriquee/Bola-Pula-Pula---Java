@@ -1,7 +1,6 @@
 package Game;
 
 import PowerUps.PowerUp;
-import view.Tela;
 import view.TelaJogar;
 import view.TelaRanking;
 
@@ -40,6 +39,7 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
         blocos.clear();
         powerups.clear();
         bolas.clear();
+        TelaJogar.jlSpecial.setText(jogador.special+"x");
     }
     
     public void tick(){
@@ -145,6 +145,14 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
         }
         else if(e.getKeyCode()==KeyEvent.VK_LEFT||e.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
             jogador.left=false;
+        }
+        if(e.getKeyCode()==KeyEvent.VK_SHIFT){
+            if(jogador.special>0){
+                jogador.special--;
+                TelaJogar.jlSpecial.setText(jogador.special+"x");
+                blocos.clear();
+                i=1000;
+            }
         }
     }
     
