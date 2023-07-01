@@ -1,6 +1,6 @@
 package PowerUps;
 
-import Game.Jogador;
+import Jogadores.Jogador;
 import Game.Jogo;
 import java.awt.Rectangle;
 
@@ -18,7 +18,7 @@ public class SwitchControls extends PowerUp {
         Rectangle boundsJogador = new Rectangle(Jogo.jogador.x,Jogo.jogador.y,Jogador.comprimento,Jogador.altura);
         if(bounds.intersects(boundsJogador)){
             Jogador.velocidade*=-1;
-            Jogador.color*=-1;
+            Jogo.jogador.color*=-1;
             return true;
         }
         return false;

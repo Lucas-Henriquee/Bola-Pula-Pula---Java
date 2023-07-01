@@ -1,21 +1,25 @@
-package Game;
+package Jogadores;
 
+import Game.Jogo;
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Jogador {
     public boolean right, left;
     public int x,y;
-    public int special;
+    public int special, color=1;
     public static int comprimento=200, altura=15;
-    public static int velocidade=20, color=1;
+    public static int velocidade=20;
     public static int lifes=4;
 
-    public Jogador(int x, int y){
+    public long pontuacao;
+
+    public Jogador(int x, int y, String NomeDoJogador){
         this.x=x;
         this.y=y;
         lifes=4;
         special=1;
+        pontuacao=0;
     }
     
     public void tick(){

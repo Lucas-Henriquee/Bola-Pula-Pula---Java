@@ -3,6 +3,8 @@ package Game;
 import PowerUps.PowerUp;
 import view.TelaJogar;
 import view.TelaRanking;
+import Jogadores.Jogador;
+import Jogadores.Nan;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -31,11 +33,15 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
     public static List<Bloco> blocos = new ArrayList<>();
     public static List<Bola> bolas = new ArrayList<>();
     public static List<PowerUp> powerups = new ArrayList<>();
-    public static long pontuacao=0;
-    public Jogo(){
+    public Jogo(String NomeDoJogador, int TipoDoJogador){
         this.setPreferredSize(new Dimension(COMPRIMENTO,ALTURA));
         this.addKeyListener(this);
-        jogador= new Jogador(COMPRIMENTO/2-Jogador.comprimento/2, ALTURA-15);
+        if(TipoDoJogador==0){
+            jogador= new Jogador(COMPRIMENTO/2-Jogador.comprimento/2, ALTURA-15, NomeDoJogador);
+        }
+        else if(TipoDoJogador==1){
+            jogador= new Nan(COMPRIMENTO/2-Jogador.comprimento/2, ALTURA-15, NomeDoJogador);
+        }
         blocos.clear();
         powerups.clear();
         bolas.clear();
@@ -95,7 +101,7 @@ public class Jogo extends Canvas implements Runnable,KeyListener {
         g.drawImage(layer, 0, 0, COMPRIMENTO,ALTURA,null);
         
         bs.show();
-        TelaJogar.jlPontuacao.setText("Pontuação: "+Jogo.pontuacao);
+        TelaJogar.jlPontuacao.setText("Pontuação: "+jogador.pontuacao);
     }
 
     @Override

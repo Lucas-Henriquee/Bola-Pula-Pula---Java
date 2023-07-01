@@ -37,7 +37,7 @@ public class TelaJogar extends JPanel implements ActionListener {
           add(jlSpecial);
           add(jlPontuacao);
           Tela.visor.add(this);
-          Jogo jogo = new Jogo();
+          Jogo jogo = new Jogo("Teste",1);
           add(jogo);
           Thread thread = new Thread(jogo);
           thread.start();
