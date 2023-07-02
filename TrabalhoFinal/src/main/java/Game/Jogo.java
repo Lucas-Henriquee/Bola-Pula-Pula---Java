@@ -33,9 +33,9 @@ public class Jogo extends Canvas implements Runnable, KeyListener {
         this.setPreferredSize(new Dimension(COMPRIMENTO, ALTURA));
         this.addKeyListener(this);
         if (TipoDoJogador == 0) {
-            jogador = new Jogador(COMPRIMENTO / 2 - Jogador.comprimento / 2, ALTURA - 15, NomeDoJogador);
+            jogador = new Jogador(COMPRIMENTO / 2 - 200 / 2, ALTURA - 15, NomeDoJogador);
         } else if (TipoDoJogador == 1) {
-            jogador = new Nan(COMPRIMENTO / 2 - Jogador.comprimento / 2, ALTURA - 15, NomeDoJogador);
+            jogador = new Nan(COMPRIMENTO / 2 - 200 / 2, ALTURA - 15, NomeDoJogador);
         }
         blocos.clear();
         powerups.clear();
@@ -125,7 +125,7 @@ public class Jogo extends Canvas implements Runnable, KeyListener {
                     case 0:
                         TelaJogar.jlVidasImage.setIcon(null);
                 }
-                bolas.add(new Bola(jogador.x + Jogador.comprimento / 2, ALTURA - Jogador.altura));
+                bolas.add(new Bola(jogador.x + jogador.comprimento / 2, ALTURA - jogador.altura));
             }
             try {
                 Thread.sleep(1000 / 60);
@@ -173,7 +173,7 @@ public class Jogo extends Canvas implements Runnable, KeyListener {
             g = new Random().nextInt(10);
             if (g < 7) {
                 blocos.add(new Bloco(i, 0));
-            } else {
+            } else if(g<9) {
                 blocos.add(new BlocoComPowerUp(i, 0));
             }
         }

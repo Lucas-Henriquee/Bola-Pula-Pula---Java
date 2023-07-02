@@ -7,7 +7,6 @@
 package PowerUps;
 
 import Game.Bola;
-import Jogadores.Jogador;
 import Game.Jogo;
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class TripleBall extends PowerUp {
         if (y >= Jogo.ALTURA)
             return true;
         Rectangle bounds = new Rectangle(x, y, COMPRIMENTO, ALTURA);
-        Rectangle boundsJogador = new Rectangle(Jogo.jogador.x, Jogo.jogador.y, Jogador.comprimento, Jogador.altura);
+        Rectangle boundsJogador = new Rectangle(Jogo.jogador.x, Jogo.jogador.y, Jogo.jogador.comprimento, Jogo.jogador.altura);
         if (bounds.intersects(boundsJogador)) {
             List<Bola> bolasaclonar = new ArrayList<>();
             for (Bola bola : Jogo.bolas) {

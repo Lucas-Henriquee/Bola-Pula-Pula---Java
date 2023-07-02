@@ -18,7 +18,7 @@ public class Nan extends Jogador {
 
     public void tick() {
         if (velocidade < 0) {
-            Jogador.velocidade *= -1;
+            velocidade *= -1;
         }
         if (right) {
             x += velocidade;

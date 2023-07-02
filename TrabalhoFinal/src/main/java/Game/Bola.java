@@ -8,7 +8,6 @@ package Game;
 
 import java.awt.*;
 import java.util.*;
-import Jogadores.*;
 
 public class Bola {
 
@@ -39,7 +38,7 @@ public class Bola {
 
         Rectangle bounds = new Rectangle((int) (x + (dx * velocidade)), (int) (y + (dy * velocidade)), comprimento,
                 altura);
-        Rectangle boundsJogador = new Rectangle(Jogo.jogador.x, Jogo.jogador.y, Jogador.comprimento, Jogador.altura);
+        Rectangle boundsJogador = new Rectangle(Jogo.jogador.x, Jogo.jogador.y, Jogo.jogador.comprimento, Jogo.jogador.altura);
 
         if (bounds.intersects(boundsJogador)) {
             int angle = new Random().nextInt(90) + 46;

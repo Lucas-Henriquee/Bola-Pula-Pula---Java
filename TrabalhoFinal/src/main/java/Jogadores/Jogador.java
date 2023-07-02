@@ -13,8 +13,8 @@ public class Jogador {
     public boolean right, left;
     public int x, y;
     public int special, color = 1;
-    public static int comprimento = 200, altura = 15;
-    public static int velocidade = 20;
+    public int comprimento, altura = 15;
+    public int velocidade;
     public int lifes = 4;
     public String nome;
     public double pontuacao;
@@ -26,6 +26,8 @@ public class Jogador {
         special = 1;
         pontuacao = 0;
         nome = NomeDoJogador;
+        velocidade=20;
+        comprimento=200;
     }
 
     public void tick() {
