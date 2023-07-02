@@ -7,7 +7,7 @@ import javax.swing.*;
 import error.NomeException;
 import error.VerificaNome;
 
-public class TelaLeNome extends JPanel implements ActionListener{
+public class TelaLeNome extends JPanel implements ActionListener {
     private JTextField textField;
     private JButton jbJogar = new JButton("Jogar");
     private JButton jbVoltar = new JButton("Voltar");
@@ -20,17 +20,18 @@ public class TelaLeNome extends JPanel implements ActionListener{
         setLayout(new GridBagLayout());
         GridBagConstraints layout = new GridBagConstraints();
         layout.anchor = GridBagConstraints.CENTER;
-        layout.insets = new Insets(20, 0, 10, 0);
+        layout.insets = new Insets(10, 0, 10, 0);
         JLabel jlInserirNome = new JLabel("Insira seu nome");
         jlInserirNome.setForeground(Color.black);
         jlInserirNome.setFont(new Font("Segoe UI", 1, 40));
         jlInserirNome.setBounds(230, 30, 750, 60);
 
         JPanel jptextArea = new JPanel();
-        jptextArea.setPreferredSize(new Dimension(355, 60));
+        jptextArea.setPreferredSize(new Dimension(275, 60));
         jptextArea.setBackground(Color.cyan);
-        textField = new JTextField(8);
-        textField.setToolTipText("São válidas apenas letras e é necessário começar com uma letra maiúscula");
+        textField = new JTextField(7);
+        textField.setToolTipText(
+                "São válidas apenas letras, é necessário começar com uma letra maiúscula e no mínimo três letras");
         textField.setFont(new Font("Segoe UI", 1, 40));
         jptextArea.add(textField);
 
@@ -52,7 +53,7 @@ public class TelaLeNome extends JPanel implements ActionListener{
         jpBaixo.setBackground(getBackground());
         GridBagConstraints layoutBaixo = new GridBagConstraints();
         layoutBaixo.anchor = GridBagConstraints.CENTER;
-        layoutBaixo.insets = new Insets(0, 0, 5, 40);
+        layoutBaixo.insets = new Insets(0, 10, 5, 30);
 
         JPanel jpPowerUps = new JPanel(new GridBagLayout());
         jpPowerUps.setBackground(getBackground());
@@ -118,7 +119,7 @@ public class TelaLeNome extends JPanel implements ActionListener{
         layout.gridy = 1;
         add(jpBaixo, layout);
 
-        layout.gridy=2;
+        layout.gridy = 2;
         add(jbVoltar, layout);
         Tela.visor.getContentPane().add(this);
         Tela.visor.pack();
@@ -128,18 +129,17 @@ public class TelaLeNome extends JPanel implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
         if (e.getSource() == jbJogar) {
-            try{
-                if(VerificaNome.Checagem(textField.getText())){
+            try {
+                if (VerificaNome.Checagem(textField.getText())) {
                     new TelaJogar(textField.getText());
                 }
-            }catch(NomeException ex){
+            } catch (NomeException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
                 textField.setText("");
             }
-        }
-        else if(e.getSource()==jbVoltar){
+        } else if (e.getSource() == jbVoltar) {
             new TelaMenu();
         }
     }
