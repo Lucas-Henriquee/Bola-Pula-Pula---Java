@@ -4,15 +4,10 @@
 //Breno Montanha - 202265513B
 //Pedro Henrique de Souza Rodrigues - 202165508B
 
-package trabalhofinal_oo.bola_pula_pula;
+package error;
 
-public class Tabuleiro {
-
-    public Tabuleiro() {
-
-    }
-
-    public void print() {
-        System.out.print("  ");
-    }
+public class ArquivoException extends Exception {
+     public ArquivoException() {
+          super("O Ranking já está sem dados");
+     }
 }

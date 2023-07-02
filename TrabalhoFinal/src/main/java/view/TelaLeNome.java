@@ -1,3 +1,9 @@
+//Integrantes:
+//Lucas Henrique Nogueira - 202265515B
+//Breno Fernandes Brazilino - 202265500B
+//Breno Montanha - 202265513B
+//Pedro Henrique de Souza Rodrigues - 202165508B
+
 package view;
 
 import java.awt.*;
@@ -8,11 +14,13 @@ import error.NomeException;
 import error.VerificaNome;
 
 public class TelaLeNome extends JPanel implements ActionListener {
+
     private JTextField textField;
     private JButton jbJogar = new JButton("Jogar");
     private JButton jbVoltar = new JButton("Voltar");
 
     public TelaLeNome() {
+
         Tela.visor.getContentPane().removeAll();
 
         setBackground(Color.cyan);
@@ -132,7 +140,7 @@ public class TelaLeNome extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == jbJogar) {
             try {
-                if (VerificaNome.Checagem(textField.getText())) {
+                if (VerificaNome.checagem(textField.getText())) {
                     new TelaJogar(textField.getText());
                 }
             } catch (NomeException ex) {

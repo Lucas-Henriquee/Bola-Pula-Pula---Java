@@ -1,3 +1,9 @@
+//Integrantes:
+//Lucas Henrique Nogueira - 202265515B
+//Breno Fernandes Brazilino - 202265500B
+//Breno Montanha - 202265513B
+//Pedro Henrique de Souza Rodrigues - 202165508B
+
 package view;
 
 import java.awt.*;
@@ -7,9 +13,14 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
-import json.CarregarDados;
+import error.*;
+import json.*;
+import json.LimparDados;
 
 public class TelaRanking extends JPanel implements ActionListener {
+
+     private JButton jbLimpar;
+     private JButton jbVoltar;
 
      public TelaRanking() {
 
@@ -29,13 +40,21 @@ public class TelaRanking extends JPanel implements ActionListener {
           jlRanking.setFont(new Font("Segoe UI", 1, 65));
           jlRanking.setBounds(new Rectangle(340, 30, 750, 80));
 
-          JButton jbVoltar = new JButton("Voltar");
+          jbVoltar = new JButton("Voltar");
           jbVoltar.setFont(new Font("Segoe UI", 1, 35));
           jbVoltar.setForeground(Color.black);
           jbVoltar.setBackground(new Color(153, 153, 153));
           jbVoltar.setCursor(new Cursor(Cursor.HAND_CURSOR));
           jbVoltar.setBounds(new Rectangle(325, 560, 250, 70));
           jbVoltar.addActionListener(this);
+
+          jbLimpar = new JButton("Limpar");
+          jbLimpar.setFont(new Font("Segoe UI", 1, 35));
+          jbLimpar.setForeground(Color.black);
+          jbLimpar.setBackground(new Color(153, 153, 153));
+          jbLimpar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+          jbLimpar.setBounds(new Rectangle(325, 560, 250, 70));
+          jbLimpar.addActionListener(this);
 
           String[] colunas = { "Nome", "Pontuação" };
 
@@ -70,6 +89,13 @@ public class TelaRanking extends JPanel implements ActionListener {
                }
           }
 
+          JPanel jpBotoes = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 0));
+          jpBotoes.setBackground(Color.cyan);
+          jpBotoes.setPreferredSize(new Dimension(Tela.WIDTH, 80));
+
+          jpBotoes.add(jbVoltar);
+          jpBotoes.add(jbLimpar);
+
           layout.gridy = 0;
 
           add(jlRanking, layout);
@@ -78,7 +104,7 @@ public class TelaRanking extends JPanel implements ActionListener {
           add(scrollPane, layout);
 
           layout.gridy = 2;
-          add(jbVoltar, layout);
+          add(jpBotoes, layout);
 
           Tela.visor.getContentPane().add(this);
           Tela.visor.pack();
@@ -90,7 +116,19 @@ public class TelaRanking extends JPanel implements ActionListener {
      @Override
      public void actionPerformed(ActionEvent e) {
 
-          new TelaMenu();
+          if (e.getSource() == jbVoltar)
+               new TelaMenu();
+
+          else if (e.getSource() == jbLimpar) {
+               try {
+                    if (VerificaArquivo.validacao("src/main/java/Database/Dados.json")) {
+                         LimparDados.cleanJsonFile("src/main/java/Database/Dados.json");
+                         new TelaRanking();
+                    }
+               } catch (ArquivoException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+               }
+          }
 
      }
 

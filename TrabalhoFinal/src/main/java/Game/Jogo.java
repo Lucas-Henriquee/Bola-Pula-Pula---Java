@@ -1,3 +1,9 @@
+//Integrantes:
+//Lucas Henrique Nogueira - 202265515B
+//Breno Fernandes Brazilino - 202265500B
+//Breno Montanha - 202265513B
+//Pedro Henrique de Souza Rodrigues - 202165508B
+
 package Game;
 
 import PowerUps.*;
@@ -132,7 +138,7 @@ public class Jogo extends Canvas implements Runnable, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        //Método inutilizado
+        // Método inutilizado
     }
 
     @Override

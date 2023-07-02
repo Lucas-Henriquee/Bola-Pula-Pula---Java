@@ -1,3 +1,9 @@
+//Integrantes:
+//Lucas Henrique Nogueira - 202265515B
+//Breno Fernandes Brazilino - 202265500B
+//Breno Montanha - 202265513B
+//Pedro Henrique de Souza Rodrigues - 202165508B
+
 package view;
 
 import java.awt.*;
@@ -31,8 +37,8 @@ public class TelaJogar extends JPanel {
           add(jlPontuacao);
           Tela.visor.add(this);
           if (NomeDoJogador.contains("-")) {
-               NomeDoJogador=NomeDoJogador.replace("-", "");
-               Jogo jogo = new Jogo(NomeDoJogador+"*", 1);
+               NomeDoJogador = NomeDoJogador.replace("-", "");
+               Jogo jogo = new Jogo(NomeDoJogador + "*", 1);
                add(jogo);
                Thread thread = new Thread(jogo);
                thread.start();

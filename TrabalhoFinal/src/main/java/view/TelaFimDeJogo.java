@@ -1,3 +1,9 @@
+//Integrantes:
+//Lucas Henrique Nogueira - 202265515B
+//Breno Fernandes Brazilino - 202265500B
+//Breno Montanha - 202265513B
+//Pedro Henrique de Souza Rodrigues - 202165508B
+
 package view;
 
 import java.awt.*;
@@ -52,9 +58,9 @@ public class TelaFimDeJogo extends JPanel implements ActionListener {
         jbRanking.setBounds(480, 800, 250, 70);
         jbRanking.addActionListener(this);
 
-        JPanel jpBotoes= new JPanel(new FlowLayout(FlowLayout.CENTER,100,0));
+        JPanel jpBotoes = new JPanel(new FlowLayout(FlowLayout.CENTER, 100, 0));
         jpBotoes.setBackground(Color.cyan);
-        jpBotoes.setPreferredSize(new Dimension(Tela.WIDTH,80));
+        jpBotoes.setPreferredSize(new Dimension(Tela.WIDTH, 80));
         jpBotoes.add(jbMenu);
         jpBotoes.add(jbRanking);
         layout.gridy = 0;
