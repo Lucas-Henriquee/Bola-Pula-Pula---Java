@@ -29,7 +29,7 @@ public class TelaLeNome extends JPanel implements ActionListener {
         JPanel jptextArea = new JPanel();
         jptextArea.setPreferredSize(new Dimension(275, 60));
         jptextArea.setBackground(Color.cyan);
-        textField = new JTextField(7);
+        textField = new JTextField(6);
         textField.setToolTipText(
                 "São válidas apenas letras, é necessário começar com uma letra maiúscula e no mínimo três letras");
         textField.setFont(new Font("Segoe UI", 1, 40));
