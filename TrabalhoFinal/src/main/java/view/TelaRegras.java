@@ -35,7 +35,7 @@ public class TelaRegras extends JPanel implements ActionListener {
         jtaRegras.setFont(new Font("segoe UI", 1, 22));
         jtaRegras.setBounds(new Rectangle(5, 180, 900, 335));
         jtaRegras.setText("             O jogador controla uma barra que se move lateralmente. "
-                + "\n\nO objetivo é quebrar os blcos que são gerados de tempos em tempos.\n\n  "
+                + "\n\nO objetivo é quebrar os blocos que são gerados de tempos em tempos.\n\n  "
                 + "            O jogador possui 3 vidas ao longo de cada partida.\n\n    "
                 + "  As vidas são perdidas quando o tabuleiro não possui mais bolas.\n\n"
                 + "A cada bloco quebrado a pontuação será acrescida na pontuação total.");

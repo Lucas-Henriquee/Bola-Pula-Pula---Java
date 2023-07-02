@@ -35,7 +35,7 @@ public class TelaCreditos extends JPanel implements ActionListener {
         jtaCreditos.setFont(new Font("segoe UI", 1, 28));
         jtaCreditos.setBounds(new Rectangle(0, 160, 900, 335));
         jtaCreditos.setText("\n      Este é um trabalho de Orientação a Objetos\n\n   "
-                + " relizado por Breno Fernandes, Breno Montanha,\n\n              "
+                + " realizado por Breno Fernandes, Breno Montanha,\n\n              "
                 + "  Lucas Henrique e Pedro Henrique.\n\n        "
                 + "Esperamos que tenham gostado do jogo :)");
 
