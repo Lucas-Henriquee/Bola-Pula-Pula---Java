@@ -8,6 +8,6 @@ package error;
 
 public class NomeException extends Exception {
     public NomeException() {
-        super("Você Inseriu um caractere inválido ou número de caracteres>10");
+        super("Você Inseriu um caractere inválido ou número de caracteres inválido");
     }
 }
