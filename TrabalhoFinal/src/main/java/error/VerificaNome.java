@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class VerificaNome {
     public static boolean checagem(String Nome) throws NomeException {
-        String NomeRegex = "^-?[A-Z][A-Za-z]{2,}$";
+        String NomeRegex = "^-?[A-Z][A-Za-z]{2,9}$";
         Pattern pattern = Pattern.compile(NomeRegex);
         Matcher matcher = pattern.matcher(Nome);
         if (matcher.matches()) {
